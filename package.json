@@ -1,7 +1,7 @@
 {
-  "name": "praghub-calculadora",
+  "name": "praghub-website",
   "version": "1.0.0",
-  "description": "Calculadora de Maturidade Digital da PragHub",
+  "description": "PragHub - A revolução digital no controle de pragas",
   "main": "index.html",
   "scripts": {
     "dev": "python -m http.server 3000",
@@ -9,9 +9,12 @@
     "start": "python -m http.server 3000"
   },
   "keywords": [
-    "calculadora",
-    "maturidade-digital",
     "praghub",
+    "controle-pragas",
+    "pest-control",
+    "digital",
+    "scanner",
+    "compliance",
     "leads",
     "formspree"
   ],
@@ -19,7 +22,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/praghub/calculadora-maturidade-digital"
+    "url": "https://github.com/modilhao/praghub"
   },
-  "homepage": "https://calculadora-praghub.vercel.app"
+  "homepage": "https://trae19hmd2kk-modilhao-modilhaos-projects.vercel.app"
 }
