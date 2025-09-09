@@ -48,6 +48,9 @@ coverage/
 tmp/
 temp/
 
+# Vercel
+.vercel/
+
 # Trae IDE specific
 .trae/
 
