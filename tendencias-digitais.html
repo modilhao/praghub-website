@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tendências digitais que estão transformando o setor - Praghub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="./public/1.png">
+    <link rel="apple-touch-icon" href="./public/1.png">
+    <meta property="og:title" content="Tendências digitais que estão transformando o setor">
+    <meta property="og:description" content="O setor de controle de pragas vive uma transformação silenciosa, mas profunda. Descubra as principais tendências digitais que não podem ser ignoradas.">
+    <meta property="og:image" content="./public/1.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="./public/1.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #135bec;
+            --primary-hover: #0f4fd1;
+            --text-primary: #2d3748;
+            --text-secondary: #718096;
+            --text-light: #a0aec0;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f7fafc;
+            --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --border-color: #e2e8f0;
+            --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--bg-primary);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-sm {
+            padding: 60px 0;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-back {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            padding: 8px 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .nav-back:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-1px);
+        }
+
+        .nav-cta {
+            background: var(--primary-color);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            background: var(--primary-hover);
+            transform: translateY(-1px);
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 2;
+            background: rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Article Content */
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 60px;
+            border-radius: 16px;
+            box-shadow: var(--shadow-lg);
+            margin-top: -40px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .article-content h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin: 40px 0 24px 0;
+            color: var(--text-primary);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 8px;
+        }
+
+        .article-content h2:first-child {
+            margin-top: 0;
+        }
+
+        .article-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 24px;
+            color: var(--text-primary);
+        }
+
+        .trends-grid {
+            display: grid;
+            gap: 24px;
+            margin: 32px 0;
+        }
+
+        .trend-card {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, #f1f5f9 100%);
+            padding: 32px;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .trend-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .trend-card h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--primary-color);
+        }
+
+        .trend-card p {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 0;
+            color: var(--text-primary);
+        }
+
+        .article-content strong {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .highlight-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #667eea 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .highlight-section h2 {
+            color: white;
+            border: none;
+            margin-bottom: 16px;
+        }
+
+        .highlight-section p {
+            font-size: 1.1rem;
+            margin-bottom: 0;
+            opacity: 0.9;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--bg-secondary);
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: var(--text-primary);
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            color: var(--text-secondary);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-md);
+            margin: 0 8px;
+        }
+
+        .cta-button:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .cta-button-secondary {
+            background: white;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .cta-button-secondary:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-primary);
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .footer p {
+            margin-bottom: 16px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+        }
+
+        .footer-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 16px;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .article-hero {
+                padding: 100px 0 60px;
+            }
+
+            .article-content {
+                padding: 40px 24px;
+                margin-top: -20px;
+            }
+
+            .nav {
+                flex-wrap: wrap;
+                gap: 16px;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .trend-card {
+                padding: 24px;
+            }
+
+            .highlight-section {
+                padding: 32px 24px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .stagger-1 { animation-delay: 0.1s; }
+        .stagger-2 { animation-delay: 0.2s; }
+        .stagger-3 { animation-delay: 0.3s; }
+
+        /* Canvas Animation Styles */
+        .hero-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .article-hero {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .article-hero .container {
+            position: relative;
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <a href="index.html" class="nav-back">← Voltar</a>
+            <a href="index.html" class="logo">
+                <img src="./public/2.png" alt="Praghub" style="height: 40px; width: auto;">
+            </a>
+            <a href="scanner.html" class="nav-cta">Scanner Gratuito</a>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <canvas class="hero-canvas" id="heroCanvas"></canvas>
+        <div class="container">
+            <h1>Tendências digitais que estão transformando o setor</h1>
+            <p>Descubra as principais inovações que estão mudando a forma como empresas de controle de pragas operam e crescem.</p>
+        </div>
+    </section>
+
+    <!-- Article Content -->
+    <section class="section">
+        <div class="container">
+            <article class="article-content fade-in-up stagger-2">
+                <p>O setor de controle de pragas vive uma transformação silenciosa, mas profunda. Novas tecnologias estão mudando a forma como empresas se relacionam com clientes, se comunicam e entregam seus serviços. Ignorar essas mudanças significa ficar para trás.</p>
+
+                <h2>3 tendências que merecem atenção</h2>
+                
+                <div class="trends-grid">
+                    <div class="trend-card">
+                        <h3>1. Digitalização de processos</h3>
+                        <p>Do agendamento ao relatório final, tudo pode ser feito online. Isso aumenta a eficiência e melhora a experiência do cliente.</p>
+                    </div>
+                    
+                    <div class="trend-card">
+                        <h3>2. Marketing de precisão</h3>
+                        <p>As redes sociais e o marketing digital permitem que empresas menores atinjam exatamente seu público-alvo com baixo custo e alta eficácia.</p>
+                    </div>
+                    
+                    <div class="trend-card">
+                        <h3>3. Compliance automatizado</h3>
+                        <p>Ferramentas digitais reduzem a complexidade de manter documentos e certificações em dia, liberando tempo para focar no que realmente importa: atender bem.</p>
+                    </div>
+                </div>
+
+                <div class="highlight-section">
+                    <h2>O futuro é agora</h2>
+                    <p>As empresas que abraçam essas tendências não apenas sobrevivem — elas lideram. Não espere o mercado mudar sem você.</p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section section">
+        <div class="container">
+            <h2>Entre na fila de espera da Praghub</h2>
+            <p>Descubra em primeira mão o que está chegando e seja parte da transformação digital do setor.</p>
+            <div>
+                <a href="index.html#signup" class="cta-button">Entrar na fila de espera</a>
+                <a href="scanner.html" class="cta-button cta-button-secondary">Testar Scanner Gratuito</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>Praghub © 2025 – Associação Digital em fase de pré-lançamento.</p>
+            <div class="footer-links">
+                <a href="index.html">Início</a>
+                <a href="compliance-simplificado.html">Compliance Simplificado</a>
+                <a href="visibilidade-online.html">Visibilidade Online</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = 'none';
+            }
+        });
+
+        // Metamorphosis Animation
+        function initMetamorphosisAnimation() {
+            const canvas = document.getElementById('heroCanvas');
+            if (!canvas) return;
+            
+            const ctx = canvas.getContext('2d');
+            let animationFrameId = null;
+            
+            // Resize canvas to match container
+            function resizeCanvas() {
+                const rect = canvas.getBoundingClientRect();
+                canvas.width = rect.width;
+                canvas.height = rect.height;
+            }
+            
+            resizeCanvas();
+            window.addEventListener('resize', resizeCanvas);
+            
+            const width = canvas.width;
+            const height = canvas.height;
+            
+            // Configuration
+            const numLines = Math.min(80, Math.floor(width / 10));
+            const lineSegments = 120;
+            const lineAlpha = 0.4;
+            const lineWidth = 0.8;
+            
+            let time = 2000;
+            
+            // Form definitions
+            const forms = [
+                (u, v, t) => {
+                    const theta = u * Math.PI * 2;
+                    const phi = v * Math.PI;
+                    let r = 120 + 30 * Math.sin(phi * 4 + theta * 2);
+                    r += 20 * Math.sin(phi * 6) * Math.cos(theta * 3);
+                    let x = r * Math.sin(phi) * Math.cos(theta);
+                    let y = r * Math.sin(phi) * Math.sin(theta);
+                    let z = r * Math.cos(phi) + 20 * Math.sin(theta * 5 + phi * 3);
+                    return { x, y, z };
+                },
+                (u, v, t) => {
+                    const theta = u * Math.PI * 2;
+                    const phi = v * Math.PI;
+                    let r = 150 + 20 * Math.cos(phi * 8);
+                    r *= 0.8 + 0.2 * Math.abs(Math.cos(theta * 2));
+                    let x = r * Math.sin(phi) * Math.cos(theta);
+                    let y = r * Math.sin(phi) * Math.sin(theta);
+                    let z = r * Math.cos(phi) * (0.8 + 0.3 * Math.sin(theta * 4));
+                    return { x, y, z };
+                },
+                (u, v, t) => {
+                    const theta = u * Math.PI * 2;
+                    const phi = v * Math.PI;
+                    let r = 120;
+                    r += 50 * Math.sin(phi * 3) * Math.sin(theta * 2.5);
+                    r += 30 * Math.cos(phi * 5 + theta);
+                    let x = r * Math.sin(phi) * Math.cos(theta);
+                    let y = r * Math.sin(phi) * Math.sin(theta);
+                    let z = r * Math.cos(phi);
+                    const hollow = Math.max(0, Math.sin(phi * 2 + theta * 3) - 0.7);
+                    r *= 1 - hollow * 0.8;
+                    return { x, y, z };
+                }
+            ];
+            
+            const interpolateForms = (formA, formB, u, v, t, blend) => {
+                const pointA = formA(u, v, t);
+                const pointB = formB(u, v, t);
+                return {
+                    x: pointA.x * (1 - blend) + pointB.x * blend,
+                    y: pointA.y * (1 - blend) + pointB.y * blend,
+                    z: pointA.z * (1 - blend) + pointB.z * blend
+                };
+            };
+            
+            const getCurrentForm = (u, v, t) => {
+                const totalForms = forms.length;
+                const cycleTime = 600;
+                const position = (t % (cycleTime * totalForms)) / cycleTime;
+                const formIndex = Math.floor(position);
+                const nextFormIndex = (formIndex + 1) % totalForms;
+                let rawBlend = position - formIndex;
+                const normalizedTime = rawBlend;
+                const blend = normalizedTime < 0.5
+                    ? 4 * normalizedTime * normalizedTime * normalizedTime
+                    : 1 - Math.pow(-2 * normalizedTime + 2, 3) / 2;
+                return interpolateForms(forms[formIndex], forms[nextFormIndex], u, v, t, blend);
+            };
+            
+            const animate = () => {
+                ctx.clearRect(0, 0, width, height);
+                const rotateZ = time * 0.00025 * 0.1;
+                
+                for (let i = 0; i < numLines; i++) {
+                    const v = i / (numLines - 1);
+                    ctx.beginPath();
+                    ctx.strokeStyle = `rgba(19, 91, 236, ${lineAlpha})`;
+                    ctx.lineWidth = lineWidth;
+                    let lastPointVisible = false;
+                    
+                    for (let j = 0; j <= lineSegments; j++) {
+                        const u = j / lineSegments;
+                        const point = getCurrentForm(u, v, time);
+                        const rotatedX = point.x * Math.cos(rotateZ) - point.y * Math.sin(rotateZ);
+                        const rotatedY = point.x * Math.sin(rotateZ) + point.y * Math.cos(rotateZ);
+                        const rotatedZ = point.z;
+                        const scale = (1.2 + rotatedZ * 0.0008) * 1.5;
+                        const projX = width / 2 + rotatedX * scale;
+                        const projY = height / 2 + rotatedY * scale;
+                        const pointVisible = rotatedZ > -50;
+                        
+                        if (j === 0) {
+                            if (pointVisible) {
+                                ctx.moveTo(projX, projY);
+                                lastPointVisible = true;
+                            }
+                        } else {
+                            if (pointVisible && lastPointVisible) {
+                                ctx.lineTo(projX, projY);
+                            } else if (pointVisible && !lastPointVisible) {
+                                ctx.moveTo(projX, projY);
+                            }
+                        }
+                        lastPointVisible = pointVisible;
+                    }
+                    ctx.stroke();
+                }
+                
+                time += 0.5;
+                animationFrameId = requestAnimationFrame(animate);
+            };
+            
+            animate();
+            
+            return () => {
+                if (animationFrameId) {
+                    cancelAnimationFrame(animationFrameId);
+                }
+                window.removeEventListener('resize', resizeCanvas);
+            };
+        }
+        
+        document.addEventListener('DOMContentLoaded', initMetamorphosisAnimation);
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.trend-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+
+    <!-- GSAP CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    
+    <!-- Particle Animation Script -->
+    <script>
+        class ParticleNetwork {
+            constructor(canvas) {
+                this.canvas = canvas;
+                this.ctx = canvas.getContext('2d');
+                this.particles = [];
+                this.particleCount = 40;
+                this.maxDistance = 100;
+                
+                this.init();
+                this.bindEvents();
+                this.animate();
+            }
+            
+            init() {
+                this.resize();
+                this.createParticles();
+            }
+            
+            resize() {
+                this.canvas.width = this.canvas.offsetWidth * window.devicePixelRatio;
+                this.canvas.height = this.canvas.offsetHeight * window.devicePixelRatio;
+                this.ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+                
+                this.width = this.canvas.offsetWidth;
+                this.height = this.canvas.offsetHeight;
+            }
+            
+            createParticles() {
+                const isMobile = window.innerWidth < 768;
+                this.particleCount = isMobile ? 20 : 40;
+                
+                this.particles = [];
+                for (let i = 0; i < this.particleCount; i++) {
+                    this.particles.push({
+                        x: Math.random() * this.width,
+                        y: Math.random() * this.height,
+                        vx: (Math.random() - 0.5) * 0.3,
+                        vy: (Math.random() - 0.5) * 0.3,
+                        size: Math.random() * 1.5 + 0.5,
+                        opacity: Math.random() * 0.4 + 0.1
+                    });
+                }
+            }
+            
+            bindEvents() {
+                window.addEventListener('resize', () => {
+                    this.resize();
+                    this.createParticles();
+                });
+            }
+            
+            updateParticles() {
+                this.particles.forEach(particle => {
+                    particle.x += particle.vx;
+                    particle.y += particle.vy;
+                    
+                    if (particle.x < 0 || particle.x > this.width) particle.vx *= -1;
+                    if (particle.y < 0 || particle.y > this.height) particle.vy *= -1;
+                    
+                    particle.x = Math.max(0, Math.min(this.width, particle.x));
+                    particle.y = Math.max(0, Math.min(this.height, particle.y));
+                });
+            }
+            
+            drawParticles() {
+                this.particles.forEach(particle => {
+                    this.ctx.beginPath();
+                    this.ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+                    this.ctx.fillStyle = `rgba(19, 91, 236, ${particle.opacity})`;
+                    this.ctx.fill();
+                });
+            }
+            
+            drawConnections() {
+                const isMobile = window.innerWidth < 768;
+                const connectionDistance = isMobile ? 60 : this.maxDistance;
+                
+                for (let i = 0; i < this.particles.length; i++) {
+                    for (let j = i + 1; j < this.particles.length; j++) {
+                        const dx = this.particles[i].x - this.particles[j].x;
+                        const dy = this.particles[i].y - this.particles[j].y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+                        
+                        if (distance < connectionDistance) {
+                            const opacity = (1 - distance / connectionDistance) * 0.2;
+                            this.ctx.beginPath();
+                            this.ctx.moveTo(this.particles[i].x, this.particles[i].y);
+                            this.ctx.lineTo(this.particles[j].x, this.particles[j].y);
+                            this.ctx.strokeStyle = `rgba(19, 91, 236, ${opacity})`;
+                            this.ctx.lineWidth = 0.5;
+                            this.ctx.stroke();
+                        }
+                    }
+                }
+            }
+            
+            animate() {
+                this.ctx.clearRect(0, 0, this.width, this.height);
+                
+                this.updateParticles();
+                this.drawConnections();
+                this.drawParticles();
+                
+                requestAnimationFrame(() => this.animate());
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            const canvas = document.getElementById('heroCanvas');
+            if (canvas) {
+                new ParticleNetwork(canvas);
+                
+                gsap.to(canvas, {
+                    y: -5,
+                    duration: 3,
+                    ease: "power2.inOut",
+                    yoyo: true,
+                    repeat: -1
+                });
+            }
+        });
+    </script>
+</body>
+</html>

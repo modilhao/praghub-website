@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praghub - A revolução digital no controle de pragas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="./public/1.png">
+     <link rel="apple-touch-icon" href="./public/1.png">
+    <meta property="og:image" content="./public/1.png">
+     <meta property="og:image:width" content="1200">
+     <meta property="og:image:height" content="630">
+     <meta name="twitter:image" content="./public/1.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #135bec;
+            --primary-hover: #0f4fd1;
+            --text-primary: #2d3748;
+            --text-secondary: #718096;
+            --text-light: #a0aec0;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f7fafc;
+            --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --border-color: #e2e8f0;
+            --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--bg-primary);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-sm {
+            padding: 60px 0;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-cta {
+            background: var(--primary-color);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            background: var(--primary-hover);
+            transform: translateY(-1px);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 120px 0 80px;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.3;
+            z-index: 1;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--primary-color) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-md);
+        }
+
+        .cta-button:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .cta-button-secondary {
+            background: white;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .cta-button-secondary:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* Form Section */
+        .form-section {
+            background: var(--bg-secondary);
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .form-container h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+
+        .form-container p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+        }
+
+        .signup-form {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: var(--shadow-lg);
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(19, 91, 236, 0.1);
+        }
+
+        .form-submit {
+            width: 100%;
+            background: var(--primary-color);
+            color: white;
+            padding: 16px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .form-submit:hover {
+            background: var(--primary-hover);
+            transform: translateY(-1px);
+        }
+
+        /* Value Proposition */
+        .value-prop {
+            text-align: center;
+        }
+
+        .value-prop h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 60px;
+            color: var(--text-primary);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 40px 32px;
+            border-radius: 16px;
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--primary-color), #667eea);
+            border-radius: 16px;
+            margin: 0 auto 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: white;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Scanner Section */
+        .scanner-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #667eea 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .scanner-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .scanner-section p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+
+        /* Insights Section */
+        .insights-section {
+            background: var(--bg-secondary);
+        }
+
+        .insights-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .insights-content h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: var(--text-primary);
+        }
+
+        .insights-content p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+        }
+
+        .insights-list {
+            list-style: none;
+            margin: 40px 0;
+        }
+
+        .insights-list li {
+            background: white;
+            padding: 20px 24px;
+            margin-bottom: 16px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            font-style: italic;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+        }
+
+        .insights-list li:hover {
+            transform: translateX(8px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Trust Section */
+        .trust-section {
+            text-align: center;
+            background: linear-gradient(135deg, #f8fafc 0%, white 100%);
+        }
+
+        .trust-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .trust-content p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            line-height: 1.7;
+        }
+
+        .trust-quote {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: var(--primary-color);
+            margin: 32px 0;
+            padding: 24px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            border-left: 4px solid var(--primary-color);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-primary);
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .footer p {
+            margin-bottom: 16px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+        }
+
+        .footer-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 16px;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .hero {
+                padding: 100px 0 60px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .signup-form {
+                padding: 24px;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 16px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .stagger-1 { animation-delay: 0.1s; }
+        .stagger-2 { animation-delay: 0.2s; }
+        .stagger-3 { animation-delay: 0.3s; }
+        /* Canvas Animation Styles */
+        .hero-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <a href="#" class="logo">
+                <img src="./public/2.png" alt="Praghub - Tecnologia para Compliance" style="height: 60px; width: auto; transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.1)'; this.style.filter='brightness(1.1)'" onmouseout="this.style.transform='scale(1)'; this.style.filter='brightness(1)'">
+            </a>
+            <a href="#signup" class="nav-cta">Entrar na fila</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <canvas class="hero-canvas" id="heroCanvas"></canvas>
+        <div class="container">
+            <h1 class="fade-in-up">A revolução digital no controle de pragas já começou.</h1>
+            <p class="fade-in-up stagger-1">Seja o primeiro a descobrir o que está por vir. Entre agora na fila de espera e garanta acesso antecipado às novidades da Praghub.</p>
+            <div class="hero-buttons fade-in-up stagger-2">
+                <a href="#signup" class="cta-button">Entrar na fila de espera</a>
+                <a href="scanner.html" class="cta-button cta-button-secondary" style="margin-left: 16px;">Testar Scanner Gratuito</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section id="signup" class="form-section section">
+        <div class="container">
+            <div class="form-container">
+                <h2>Garanta seu lugar na frente da fila</h2>
+                <p>Inscreva-se abaixo para receber novidades exclusivas e ter acesso antecipado às ferramentas que vão transformar o setor.</p>
+                
+                <form class="signup-form" id="signupForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                    <div class="form-group">
+                        <label for="name">Nome *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-mail *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="company">Empresa (opcional)</label>
+                        <input type="text" id="company" name="company">
+                    </div>
+                    <button type="submit" class="form-submit">Quero receber em primeira mão</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Proposition -->
+    <section class="value-prop section">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 2rem;">
+                <img src="./public/1.png" alt="Praghub" style="height: 80px; width: auto; opacity: 0.8; transition: all 0.4s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.15) rotate(5deg)'; this.style.opacity='1'; this.style.filter='drop-shadow(0 8px 16px rgba(19, 91, 236, 0.3))'" onmouseout="this.style.transform='scale(1) rotate(0deg)'; this.style.opacity='0.8'; this.style.filter='none'">
+            </div>
+            <h2>Por que a Praghub vai mudar o jogo?</h2>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">👁️</div>
+                    <h3>Mais Visibilidade</h3>
+                    <p>Mais <strong>visibilidade</strong> para empresas do setor com ferramentas digitais avançadas.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Mais Segurança</h3>
+                    <p>Mais <strong>segurança</strong> com ferramentas de compliance automatizadas e atualizadas.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🤝</div>
+                    <h3>Mais Conexão</h3>
+                    <p>Mais <strong>conexão</strong> em uma comunidade que cresce a cada dia no setor.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scanner Section -->
+    <section class="scanner-section section">
+        <div class="container">
+            <h2>Experimente agora, sem custo.</h2>
+            <p>Descubra em segundos se sua empresa está em dia com as principais exigências do setor. Nosso <strong>Scanner de Compliance</strong> é gratuito, rápido e o primeiro passo para quem quer estar à frente.</p>
+            <a href="scanner.html" class="cta-button cta-button-secondary">Testar o Scanner</a>
+        </div>
+    </section>
+
+    <!-- Insights Section -->
+    <section class="insights-section section">
+        <div class="container">
+            <div class="insights-content">
+                <h2>Insights que fazem diferença</h2>
+                <p>Fique por dentro das principais tendências e mudanças no setor de controle de pragas. Na Praghub, vamos compartilhar artigos, guias e materiais exclusivos que ajudam sua empresa a crescer com segurança e inovação.</p>
+                
+                <ul class="insights-list">
+                    <li><a href="compliance-simplificado.html" style="text-decoration: none; color: inherit;">"Compliance simplificado: o que muda para pequenas e médias empresas"</a></li>
+                    <li><a href="tendencias-digitais.html" style="text-decoration: none; color: inherit;">"Tendências digitais que estão transformando o setor"</a></li>
+                    <li><a href="visibilidade-online.html" style="text-decoration: none; color: inherit;">"Visibilidade online: como atrair mais clientes e contratos"</a></li>
+                </ul>
+                
+                <a href="compliance-simplificado.html" class="cta-button">Ler artigos e novidades</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Section -->
+    <section class="trust-section section-sm">
+        <div class="container">
+            <div class="trust-content">
+                <p>A Praghub nasce da união entre especialistas do setor e inovação digital. Estamos criando algo que vai muito além de uma associação: um movimento.</p>
+                
+                <div class="trust-quote">
+                    Entre na fila de espera e garanta acesso antecipado.
+                </div>
+                
+                <a href="#signup" class="cta-button">Quero estar na frente</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>Praghub © 2025 – Associação Digital em fase de pré-lançamento.</p>
+            <div class="footer-links">
+                <a href="#">Política de Privacidade</a>
+                <a href="#">Contato</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Metamorphosis Animation
+        function initMetamorphosisAnimation() {
+            const canvas = document.getElementById('heroCanvas');
+            if (!canvas) return;
+            
+            const ctx = canvas.getContext('2d');
+            let animationFrameId = null;
+            
+            // Resize canvas to match container
+            function resizeCanvas() {
+                const rect = canvas.getBoundingClientRect();
+                canvas.width = rect.width;
+                canvas.height = rect.height;
+            }
+            
+            resizeCanvas();
+            window.addEventListener('resize', resizeCanvas);
+            
+            const width = canvas.width;
+            const height = canvas.height;
+            
+            // Configuration
+            const numLines = Math.min(80, Math.floor(width / 10));
+            const lineSegments = 120;
+            const lineAlpha = 0.4;
+            const lineWidth = 0.8;
+            const morphSpeed = 0.0005;
+            const rotateSpeed = 0.00025;
+            
+            let time = 2000;
+            
+            // Form definitions - moving from outer complexity to inner simplicity
+            const forms = [
+                // Form 1: Draped cloth-like shape
+                (u, v, t) => {
+                    const theta = u * Math.PI * 2;
+                    const phi = v * Math.PI;
+                    
+                    let r = 120 + 30 * Math.sin(phi * 4 + theta * 2);
+                    r += 20 * Math.sin(phi * 6) * Math.cos(theta * 3);
+                    
+                    let x = r * Math.sin(phi) * Math.cos(theta);
+                    let y = r * Math.sin(phi) * Math.sin(theta);
+                    let z = r * Math.cos(phi) + 20 * Math.sin(theta * 5 + phi * 3);
+                    
+                    return { x, y, z };
+                },
+                
+                // Form 2: More angular folded shape
+                (u, v, t) => {
+                    const theta = u * Math.PI * 2;
+                    const phi = v * Math.PI;
+                    
+                    let r = 150 + 20 * Math.cos(phi * 8);
+                    r *= 0.8 + 0.2 * Math.abs(Math.cos(theta * 2));
+                    
+                    let x = r * Math.sin(phi) * Math.cos(theta);
+                    let y = r * Math.sin(phi) * Math.sin(theta);
+                    let z = r * Math.cos(phi) * (0.8 + 0.3 * Math.sin(theta * 4));
+                    
+                    return { x, y, z };
+                },
+                
+                // Form 3: Organic bulbous shape
+                (u, v, t) => {
+                    const theta = u * Math.PI * 2;
+                    const phi = v * Math.PI;
+                    
+                    let r = 120;
+                    r += 50 * Math.sin(phi * 3) * Math.sin(theta * 2.5);
+                    r += 30 * Math.cos(phi * 5 + theta);
+                    
+                    let x = r * Math.sin(phi) * Math.cos(theta);
+                    let y = r * Math.sin(phi) * Math.sin(theta);
+                    let z = r * Math.cos(phi);
+                    
+                    // Create some hollow areas
+                    const hollow = Math.max(0, Math.sin(phi * 2 + theta * 3) - 0.7);
+                    r *= 1 - hollow * 0.8;
+                    
+                    return { x, y, z };
+                }
+            ];
+            
+            // Interpolate between forms
+            const interpolateForms = (formA, formB, u, v, t, blend) => {
+                const pointA = formA(u, v, t);
+                const pointB = formB(u, v, t);
+                
+                return {
+                    x: pointA.x * (1 - blend) + pointB.x * blend,
+                    y: pointA.y * (1 - blend) + pointB.y * blend,
+                    z: pointA.z * (1 - blend) + pointB.z * blend
+                };
+            };
+            
+            // Get the current form
+            const getCurrentForm = (u, v, t) => {
+                const totalForms = forms.length;
+                const cycleTime = 600;
+                const position = (t % (cycleTime * totalForms)) / cycleTime;
+                const formIndex = Math.floor(position);
+                const nextFormIndex = (formIndex + 1) % totalForms;
+                
+                let rawBlend = position - formIndex;
+                const pauseTime = 0;
+                const transitionTime = 1 - (pauseTime * 2);
+                
+                let blend;
+                if (rawBlend < pauseTime) {
+                    blend = 0;
+                } else if (rawBlend > (1 - pauseTime)) {
+                    blend = 1;
+                } else {
+                    const normalizedTime = (rawBlend - pauseTime) / transitionTime;
+                    blend = normalizedTime < 0.5
+                        ? 4 * normalizedTime * normalizedTime * normalizedTime
+                        : 1 - Math.pow(-2 * normalizedTime + 2, 3) / 2;
+                }
+                
+                return interpolateForms(
+                    forms[formIndex], 
+                    forms[nextFormIndex], 
+                    u, v, t, blend
+                );
+            };
+            
+            // Animation loop
+            const animate = () => {
+                ctx.clearRect(0, 0, width, height);
+                
+                // Calculate rotation based on time
+                const rotateX = Math.sin(time * rotateSpeed) * 0.5;
+                const rotateY = Math.cos(time * rotateSpeed * 0.7) * 0.3;
+                const rotateZ = time * rotateSpeed * 0.1;
+                
+                // Draw horizontal contour lines
+                for (let i = 0; i < numLines; i++) {
+                    const v = i / (numLines - 1);
+                    
+                    ctx.beginPath();
+                    ctx.strokeStyle = `rgba(19, 91, 236, ${lineAlpha})`;
+                    ctx.lineWidth = lineWidth;
+                    
+                    let lastPointVisible = false;
+                    
+                    for (let j = 0; j <= lineSegments; j++) {
+                        const u = j / lineSegments;
+                        
+                        const point = getCurrentForm(u, v, time);
+                        
+                        // Apply rotation
+                        const rotatedX = point.x * Math.cos(rotateZ) - point.y * Math.sin(rotateZ);
+                        const rotatedY = point.x * Math.sin(rotateZ) + point.y * Math.cos(rotateZ);
+                        const rotatedZ = point.z;
+                        
+                        // Project to screen with 1.5x zoom
+                        const scale = (1.2 + rotatedZ * 0.0008) * 1.5;
+                        const projX = width / 2 + rotatedX * scale;
+                        const projY = height / 2 + rotatedY * scale;
+                        
+                        const pointVisible = rotatedZ > -50;
+                        
+                        if (j === 0) {
+                            if (pointVisible) {
+                                ctx.moveTo(projX, projY);
+                                lastPointVisible = true;
+                            }
+                        } else {
+                            if (pointVisible && lastPointVisible) {
+                                ctx.lineTo(projX, projY);
+                            } else if (pointVisible && !lastPointVisible) {
+                                ctx.moveTo(projX, projY);
+                            }
+                        }
+                        
+                        lastPointVisible = pointVisible;
+                    }
+                    
+                    ctx.stroke();
+                }
+                
+                // Draw vertical contour lines (fewer)
+                for (let i = 0; i < numLines * 0.3; i++) {
+                    const u = i / (numLines * 0.3 - 1);
+                    
+                    ctx.beginPath();
+                    ctx.strokeStyle = `rgba(19, 91, 236, ${lineAlpha * 0.6})`;
+                    ctx.lineWidth = lineWidth * 0.7;
+                    
+                    let lastPointVisible = false;
+                    
+                    for (let j = 0; j <= lineSegments * 0.5; j++) {
+                        const v = j / (lineSegments * 0.5);
+                        
+                        const point = getCurrentForm(u, v, time);
+                        
+                        // Apply rotation
+                        const rotatedX = point.x * Math.cos(rotateZ) - point.y * Math.sin(rotateZ);
+                        const rotatedY = point.x * Math.sin(rotateZ) + point.y * Math.cos(rotateZ);
+                        const rotatedZ = point.z;
+                        
+                        // Project to screen with 1.5x zoom
+                        const scale = (1.2 + rotatedZ * 0.0008) * 1.5;
+                        const projX = width / 2 + rotatedX * scale;
+                        const projY = height / 2 + rotatedY * scale;
+                        
+                        const pointVisible = rotatedZ > -50;
+                        
+                        if (j === 0) {
+                            if (pointVisible) {
+                                ctx.moveTo(projX, projY);
+                                lastPointVisible = true;
+                            }
+                        } else {
+                            if (pointVisible && lastPointVisible) {
+                                ctx.lineTo(projX, projY);
+                            } else if (pointVisible && !lastPointVisible) {
+                                ctx.moveTo(projX, projY);
+                            }
+                        }
+                        
+                        lastPointVisible = pointVisible;
+                    }
+                    
+                    ctx.stroke();
+                }
+                
+                time += 0.5;
+                animationFrameId = requestAnimationFrame(animate);
+            };
+            
+            animate();
+            
+            // Cleanup function
+            return () => {
+                if (animationFrameId) {
+                    cancelAnimationFrame(animationFrameId);
+                }
+                window.removeEventListener('resize', resizeCanvas);
+            };
+        }
+        
+        // Initialize animation when page loads
+        document.addEventListener('DOMContentLoaded', initMetamorphosisAnimation);
+
+        // Form submission with Formspree
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+            const submitBtn = this.querySelector('.form-submit');
+            const originalText = submitBtn.textContent;
+            
+            submitBtn.textContent = 'Enviando...';
+            submitBtn.disabled = true;
+            
+            // Let Formspree handle the submission
+            // On success, show confirmation
+            setTimeout(() => {
+                submitBtn.textContent = '✓ Inscrito com sucesso!';
+                submitBtn.style.background = '#10b981';
+                
+                setTimeout(() => {
+                    this.reset();
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                    submitBtn.style.background = '';
+                }, 3000);
+            }, 1500);
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = 'none';
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.feature-card, .insights-list li').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+
+    <!-- Metamorphosis Animation Script -->
+    <script>
+        // Metamorphosis Animation
+        function initMetamorphosisAnimation() {
+            const canvas = document.getElementById('heroCanvas');
+            if (!canvas) return;
+            
+            const ctx = canvas.getContext('2d');
+            let animationFrameId = null;
+            
+            // Resize canvas to match container
+            function resizeCanvas() {
+                const rect = canvas.getBoundingClientRect();
+                canvas.width = rect.width;
+                canvas.height = rect.height;
+            }
+            
+            resizeCanvas();
+            window.addEventListener('resize', resizeCanvas);
+            
+            const width = canvas.width;
+            const height = canvas.height;
+            
+            // Configuration
+            const numLines = Math.min(80, Math.floor(width / 10));
+            const lineSegments = 120;
+            const lineAlpha = 0.4;
+            const lineWidth = 0.8;
+            
+            let time = 2000;
+            
+            // Form definitions
+            const forms = [
+                (u, v, t) => {
+                    const theta = u * Math.PI * 2;
+                    const phi = v * Math.PI;
+                    let r = 120 + 30 * Math.sin(phi * 4 + theta * 2);
+                    r += 20 * Math.sin(phi * 6) * Math.cos(theta * 3);
+                    let x = r * Math.sin(phi) * Math.cos(theta);
+                    let y = r * Math.sin(phi) * Math.sin(theta);
+                    let z = r * Math.cos(phi) + 20 * Math.sin(theta * 5 + phi * 3);
+                    return { x, y, z };
+                },
+                (u, v, t) => {
+                    const theta = u * Math.PI * 2;
+                    const phi = v * Math.PI;
+                    let r = 150 + 20 * Math.cos(phi * 8);
+                    r *= 0.8 + 0.2 * Math.abs(Math.cos(theta * 2));
+                    let x = r * Math.sin(phi) * Math.cos(theta);
+                    let y = r * Math.sin(phi) * Math.sin(theta);
+                    let z = r * Math.cos(phi) * (0.8 + 0.3 * Math.sin(theta * 4));
+                    return { x, y, z };
+                },
+                (u, v, t) => {
+                    const theta = u * Math.PI * 2;
+                    const phi = v * Math.PI;
+                    let r = 120;
+                    r += 50 * Math.sin(phi * 3) * Math.sin(theta * 2.5);
+                    r += 30 * Math.cos(phi * 5 + theta);
+                    let x = r * Math.sin(phi) * Math.cos(theta);
+                    let y = r * Math.sin(phi) * Math.sin(theta);
+                    let z = r * Math.cos(phi);
+                    const hollow = Math.max(0, Math.sin(phi * 2 + theta * 3) - 0.7);
+                    r *= 1 - hollow * 0.8;
+                    return { x, y, z };
+                }
+            ];
+            
+            const interpolateForms = (formA, formB, u, v, t, blend) => {
+                const pointA = formA(u, v, t);
+                const pointB = formB(u, v, t);
+                return {
+                    x: pointA.x * (1 - blend) + pointB.x * blend,
+                    y: pointA.y * (1 - blend) + pointB.y * blend,
+                    z: pointA.z * (1 - blend) + pointB.z * blend
+                };
+            };
+            
+            const getCurrentForm = (u, v, t) => {
+                const totalForms = forms.length;
+                const cycleTime = 600;
+                const position = (t % (cycleTime * totalForms)) / cycleTime;
+                const formIndex = Math.floor(position);
+                const nextFormIndex = (formIndex + 1) % totalForms;
+                let rawBlend = position - formIndex;
+                const normalizedTime = rawBlend;
+                const blend = normalizedTime < 0.5
+                    ? 4 * normalizedTime * normalizedTime * normalizedTime
+                    : 1 - Math.pow(-2 * normalizedTime + 2, 3) / 2;
+                return interpolateForms(forms[formIndex], forms[nextFormIndex], u, v, t, blend);
+            };
+            
+            const animate = () => {
+                ctx.clearRect(0, 0, width, height);
+                const rotateZ = time * 0.00025 * 0.1;
+                
+                for (let i = 0; i < numLines; i++) {
+                    const v = i / (numLines - 1);
+                    ctx.beginPath();
+                    ctx.strokeStyle = `rgba(19, 91, 236, ${lineAlpha})`;
+                    ctx.lineWidth = lineWidth;
+                    let lastPointVisible = false;
+                    
+                    for (let j = 0; j <= lineSegments; j++) {
+                        const u = j / lineSegments;
+                        const point = getCurrentForm(u, v, time);
+                        const rotatedX = point.x * Math.cos(rotateZ) - point.y * Math.sin(rotateZ);
+                        const rotatedY = point.x * Math.sin(rotateZ) + point.y * Math.cos(rotateZ);
+                        const rotatedZ = point.z;
+                        const scale = 1.2 + rotatedZ * 0.0008;
+                        const projX = width / 2 + rotatedX * scale;
+                        const projY = height / 2 + rotatedY * scale;
+                        const pointVisible = rotatedZ > -50;
+                        
+                        if (j === 0) {
+                            if (pointVisible) {
+                                ctx.moveTo(projX, projY);
+                                lastPointVisible = true;
+                            }
+                        } else {
+                            if (pointVisible && lastPointVisible) {
+                                ctx.lineTo(projX, projY);
+                            } else if (pointVisible && !lastPointVisible) {
+                                ctx.moveTo(projX, projY);
+                            }
+                        }
+                        lastPointVisible = pointVisible;
+                    }
+                    ctx.stroke();
+                }
+                
+                time += 0.5;
+                animationFrameId = requestAnimationFrame(animate);
+            };
+            
+            animate();
+            
+            return () => {
+                if (animationFrameId) {
+                    cancelAnimationFrame(animationFrameId);
+                }
+                window.removeEventListener('resize', resizeCanvas);
+            };
+        }
+        
+        document.addEventListener('DOMContentLoaded', initMetamorphosisAnimation);
+    </script>
+</body>
+</html>

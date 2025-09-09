@@ -1,0 +1,971 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MVP – Scanner de Compliance (Setor de Controle de Pragas)</title>
+  <meta name="description" content="Prova de conceito: scanner rápido de compliance para empresas de controle de pragas. Gera score, diagnóstico e plano de 30 dias.">
+  <style>
+    /* Apple Design System - Variáveis CSS */
+    :root {
+      /* Cores principais - Apple Light Theme */
+      --bg: #ffffff;
+      --bg-secondary: #f2f2f7;
+      --bg-tertiary: #ffffff;
+      --panel: #ffffff;
+      --panel-secondary: #f2f2f7;
+      
+      /* Texto */
+      --text-primary: #000000;
+      --text-secondary: #3c3c43;
+      --text-tertiary: #3c3c4399;
+      --text-quaternary: #3c3c4366;
+      
+      /* Apple System Blue */
+      --accent: #007aff;
+      --accent-hover: #0056cc;
+      --accent-light: #007aff1a;
+      
+      /* Status colors */
+      --success: #34c759;
+      --success-bg: #34c75915;
+      --warning: #ff9500;
+      --warning-bg: #ff950015;
+      --error: #ff3b30;
+      --error-bg: #ff3b3015;
+      
+      /* Bordas e separadores */
+      --separator: #3c3c4329;
+      --separator-opaque: #c6c6c8;
+      
+      /* Sombras Apple */
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+      --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07), 0 1px 3px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
+      
+      /* Espaçamento baseado em 8px */
+      --space-1: 4px;
+      --space-2: 8px;
+      --space-3: 12px;
+      --space-4: 16px;
+      --space-5: 20px;
+      --space-6: 24px;
+      --space-8: 32px;
+      --space-10: 40px;
+      --space-12: 48px;
+      --space-16: 64px;
+      
+      /* Border radius Apple */
+      --radius-sm: 6px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --radius-xl: 16px;
+      --radius-full: 9999px;
+    }
+    
+    /* Reset e base */
+    * {
+      box-sizing: border-box;
+    }
+    
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text-primary);
+      line-height: 1.47;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    
+    /* Header com design Apple */
+    header {
+      padding: var(--space-8) var(--space-4);
+      text-align: center;
+      border-bottom: 1px solid var(--separator);
+      background: var(--bg-tertiary);
+      backdrop-filter: blur(20px);
+    }
+    
+    header h1 {
+      margin: 0 0 var(--space-2);
+      font-size: clamp(24px, 3.2vw, 34px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+    }
+    
+    header p {
+      margin: 0;
+      color: var(--text-secondary);
+      font-size: 15px;
+      font-weight: 400;
+    }
+    
+    /* Estilos para o texto de introdução */
+    .intro-text {
+      margin: var(--space-6) 0 var(--space-4);
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .intro-main {
+      font-size: clamp(18px, 2.2vw, 22px);
+      font-weight: 600;
+      color: var(--text-primary);
+      margin: 0 0 var(--space-3);
+      line-height: 1.4;
+    }
+    
+    .intro-sub {
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--text-secondary);
+      margin: 0 0 var(--space-5);
+      line-height: 1.5;
+    }
+    
+    .intro-benefits {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      margin: var(--space-5) 0;
+      padding: var(--space-4);
+      background: var(--bg-secondary);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--separator);
+    }
+    
+    .benefit-item {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-3);
+      font-size: 15px;
+      line-height: 1.5;
+    }
+    
+    .checkmark {
+      font-size: 16px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    
+    .benefit-item span:last-child {
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+    
+    .intro-event {
+      margin-top: var(--space-5);
+      padding: var(--space-4);
+      background: linear-gradient(135deg, var(--accent-light), rgba(52, 199, 89, 0.1));
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--accent);
+      text-align: center;
+    }
+    
+    .event-exclusive {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--accent);
+      margin: 0 0 var(--space-2);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .event-cta {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin: 0;
+      line-height: 1.4;
+    }
+    
+    .header-subtitle {
+      font-size: 13px !important;
+      color: var(--text-tertiary) !important;
+      margin-top: var(--space-4) !important;
+    }
+    
+    /* Layout principal */
+    .wrap {
+      max-width: 1200px;
+      margin: var(--space-6) auto;
+      padding: 0 var(--space-4);
+    }
+    
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+    }
+    
+    @media (min-width: 1024px) {
+      .grid {
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: var(--space-8);
+      }
+    }
+    
+    /* Cards com design Apple */
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--separator);
+      border-radius: var(--radius-xl);
+      padding: var(--space-6);
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s ease;
+    }
+    
+    .card:hover {
+      box-shadow: var(--shadow-md);
+    }
+    
+    .card h2 {
+      margin: 0 0 var(--space-4);
+      font-size: clamp(20px, 2.4vw, 24px);
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--text-primary);
+    }
+    
+    /* Texto auxiliar */
+    .muted {
+      color: var(--text-secondary);
+    }
+    
+    /* Labels e inputs */
+    label {
+      display: block;
+      margin: var(--space-4) 0 var(--space-2);
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+    
+    input[type=text], 
+    input[type=email], 
+    input[type=tel], 
+    select, 
+    textarea {
+      width: 100%;
+      padding: var(--space-3) var(--space-4);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--separator);
+      background: var(--bg);
+      color: var(--text-primary);
+      font-size: 16px;
+      font-family: inherit;
+      transition: all 0.2s ease;
+    }
+    
+    input[type=text]:focus, 
+    input[type=email]:focus, 
+    input[type=tel]:focus, 
+    select:focus, 
+    textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-light);
+    }
+    
+    /* Fieldsets para perguntas */
+    .q {
+      margin: var(--space-4) 0;
+      padding: var(--space-4);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--separator);
+      background: var(--bg-secondary);
+    }
+    
+    .q legend {
+      font-weight: 600;
+      font-size: 16px;
+      color: var(--text-primary);
+      padding: 0 var(--space-2);
+    }
+    
+    /* Radio buttons */
+    .yn {
+      display: flex;
+      gap: var(--space-6);
+      margin-top: var(--space-3);
+    }
+    
+    .yn label {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      margin: 0;
+      cursor: pointer;
+      font-weight: 400;
+    }
+    
+    input[type=radio] {
+      width: 20px;
+      height: 20px;
+      accent-color: var(--accent);
+    }
+    
+    /* Ações */
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+      margin-top: var(--space-6);
+    }
+    
+    /* Botões com design Apple */
+    button {
+      border: 0;
+      padding: var(--space-3) var(--space-5);
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 16px;
+      font-family: inherit;
+      transition: all 0.2s ease;
+      min-height: 44px;
+    }
+    
+    .primary {
+      background: var(--accent);
+      color: white;
+    }
+    
+    .primary:hover {
+      background: var(--accent-hover);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .ghost {
+      background: var(--bg);
+      color: var(--text-primary);
+      border: 1px solid var(--separator);
+    }
+    
+    .ghost:hover {
+      background: var(--bg-secondary);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .danger {
+      background: var(--error-bg);
+      color: var(--error);
+      border: 1px solid var(--error);
+    }
+    
+    .danger:hover {
+      background: var(--error);
+      color: white;
+    }
+    
+    /* Resultado */
+    .result {
+      display: none;
+    }
+    
+    .score {
+      font-size: clamp(56px, 8vw, 96px);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+    }
+    
+    /* Pills com design Apple */
+    .pill {
+      display: inline-block;
+      padding: var(--space-2) var(--space-3);
+      border-radius: var(--radius-full);
+      font-weight: 600;
+      font-size: 14px;
+    }
+    
+    .pill.warn {
+      background: var(--warning-bg);
+      color: var(--warning);
+    }
+    
+    .pill.ok {
+      background: var(--success-bg);
+      color: var(--success);
+    }
+    
+    .pill.crit {
+      background: var(--error-bg);
+      color: var(--error);
+    }
+    
+    /* Listas */
+    .list {
+      margin: var(--space-3) 0 0;
+      padding-left: var(--space-5);
+    }
+    
+    .list li {
+      margin-bottom: var(--space-2);
+      color: var(--text-secondary);
+    }
+    
+    /* Disclaimer e footer */
+    .disclaimer {
+      font-size: 13px;
+      color: var(--text-tertiary);
+      margin-top: var(--space-4);
+    }
+    
+    .footer {
+      margin-top: var(--space-4);
+      color: var(--text-tertiary);
+      font-size: 13px;
+    }
+    
+    /* Badge */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-2) var(--space-3);
+      border-radius: var(--radius-full);
+      background: var(--accent-light);
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      font-size: 14px;
+      font-weight: 600;
+    }
+    
+    /* Grid de duas colunas */
+    .two {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-4);
+    }
+    
+    @media (min-width: 768px) {
+      .two {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    
+    /* Separador */
+    hr {
+      border: 0;
+      border-top: 1px solid var(--separator);
+      margin: var(--space-6) 0;
+    }
+    
+    /* Estados de sucesso e erro */
+    .success {
+      background: var(--success-bg);
+      color: var(--success);
+      padding: var(--space-3) var(--space-4);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--success);
+      display: none;
+      margin-top: var(--space-3);
+    }
+    
+    .error {
+      background: var(--error-bg);
+      color: var(--error);
+      padding: var(--space-3) var(--space-4);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--error);
+      display: none;
+      margin-top: var(--space-3);
+    }
+    
+    /* Print styles */
+    .print-only {
+      display: none;
+    }
+    
+    @media print {
+      .no-print {
+        display: none;
+      }
+      .print-only {
+        display: block;
+      }
+      body {
+        background: #fff;
+        color: #000;
+      }
+      .card {
+        border: 1px solid #ddd;
+        background: #fff;
+        box-shadow: none;
+      }
+      header {
+        border-bottom: 1px solid #ddd;
+      }
+    }
+    
+    /* Checkbox personalizado */
+    input[type=checkbox] {
+      width: 20px;
+      height: 20px;
+      accent-color: var(--accent);
+    }
+    
+    /* Responsividade aprimorada */
+    @media (max-width: 768px) {
+      .wrap {
+        margin: var(--space-4) auto;
+        padding: 0 var(--space-3);
+      }
+      
+      .card {
+        padding: var(--space-4);
+      }
+      
+      header {
+        padding: var(--space-6) var(--space-3);
+      }
+      
+      .actions {
+        flex-direction: column;
+      }
+      
+      button {
+        width: 100%;
+      }
+      
+      /* Responsividade para texto de introdução */
+      .intro-text {
+        margin: var(--space-4) 0 var(--space-3);
+      }
+      
+      .intro-benefits {
+        padding: var(--space-3);
+        margin: var(--space-4) 0;
+      }
+      
+      .benefit-item {
+        font-size: 14px;
+      }
+      
+      .intro-event {
+        padding: var(--space-3);
+        margin-top: var(--space-4);
+      }
+      
+      .event-exclusive {
+        font-size: 13px;
+      }
+      
+      .event-cta {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>PragHub — <span style="color:var(--accent)">Scanner de Compliance</span></h1>
+    <div class="intro-text">
+      <p class="intro-main">Quer saber se sua empresa está pronta para brilhar no mercado de controle de pragas?</p>
+      <p class="intro-sub">Em poucos minutos, você terá um diagnóstico personalizado mostrando sua pontuação de compliance, os principais pontos fortes e o que precisa melhorar.</p>
+      
+      <div class="intro-benefits">
+        <div class="benefit-item">
+          <span class="checkmark">✅</span>
+          <span>Receba um relatório imediato com score de 0 a 100</span>
+        </div>
+        <div class="benefit-item">
+          <span class="checkmark">✅</span>
+          <span>Descubra os gaps mais críticos e como corrigi-los em 30 dias</span>
+        </div>
+        <div class="benefit-item">
+          <span class="checkmark">✅</span>
+          <span>Ganhe um badge provisório de empresa verificada para destacar sua marca</span>
+        </div>
+      </div>
+      
+      <div class="intro-event">
+        <p class="event-exclusive">Este é um aplicativo exclusivo para o evento de Jundiaí (21/11/25).</p>
+        <p class="event-cta">Seja parte do grupo fundador da nova Associação Digital de Controle de Pragas e mostre que sua empresa está na frente.</p>
+      </div>
+    </div>
+    <p class="header-subtitle">Prova de Conceito • Jundiaí • 21/11/2024 — Scanner de Compliance + Geração de Relatório</p>
+  </header>
+
+  <div class="wrap grid">
+    <section class="card">
+      <h2>1) Dados da Empresa</h2>
+      <div class="two">
+        <div>
+          <label>Razão Social*</label>
+          <input id="empresa" type="text" required placeholder="Ex.: Dedetiza&cia Ltda"/>
+        </div>
+        <div>
+          <label>CNPJ</label>
+          <input id="cnpj" type="text" placeholder="00.000.000/0001-00"/>
+        </div>
+        <div>
+          <label>Contato (nome)*</label>
+          <input id="contato" type="text" required placeholder="Nome do responsável"/>
+        </div>
+        <div>
+          <label>E-mail*</label>
+          <input id="email" type="email" required placeholder="email@empresa.com.br"/>
+        </div>
+        <div>
+          <label>WhatsApp</label>
+          <input id="whats" type="tel" placeholder="(11) 9 9999-9999"/>
+        </div>
+        <div>
+          <label>UF*</label>
+          <select id="uf" required>
+            <option value="">Selecione…</option>
+            <option>AC</option><option>AL</option><option>AP</option><option>AM</option>
+            <option>BA</option><option>CE</option><option>DF</option><option>ES</option>
+            <option>GO</option><option>MA</option><option>MT</option><option>MS</option>
+            <option>MG</option><option>PA</option><option>PB</option><option>PR</option>
+            <option>PE</option><option>PI</option><option>RJ</option><option>RN</option>
+            <option>RS</option><option>RO</option><option>RR</option><option>SC</option>
+            <option>SP</option><option>SE</option><option>TO</option>
+          </select>
+        </div>
+      </div>
+      <label style="margin-top:10px"><input id="lgpd" type="checkbox"/> Concordo em compartilhar meus dados para avaliação e receber o relatório por e-mail. (LGPD)</label>
+
+      <hr/>
+      <h2>2) Scanner RDC 622/2022 — Perguntas</h2>
+      <fieldset class="q">
+        <legend>1. Responsável Técnico ativo conforme legislação?</legend>
+        <div class="yn">
+          <label><input type="radio" name="q1" value="sim"/> Sim</label>
+          <label><input type="radio" name="q1" value="nao"/> Não</label>
+        </div>
+        <small class="muted">Peso 2.0 — Ex.: RT com vínculo e documentação comprobatória.</small>
+      </fieldset>
+      <fieldset class="q">
+        <legend>2. POPs (procedimentos) assinados e atualizados?</legend>
+        <div class="yn">
+          <label><input type="radio" name="q2" value="sim"/> Sim</label>
+          <label><input type="radio" name="q2" value="nao"/> Não</label>
+        </div>
+        <small class="muted">Peso 2.0 — Procedimentos operacionais padrão essenciais.</small>
+      </fieldset>
+      <fieldset class="q">
+        <legend>3. Licença sanitária válida?</legend>
+        <div class="yn">
+          <label><input type="radio" name="q3" value="sim"/> Sim</label>
+          <label><input type="radio" name="q3" value="nao"/> Não</label>
+        </div>
+        <small class="muted">Peso 2.0 — Documento vigente e disponível.</small>
+      </fieldset>
+      <fieldset class="q">
+        <legend>4. Rastreabilidade de saneantes (ANVISA) e FISPQ?</legend>
+        <div class="yn">
+          <label><input type="radio" name="q4" value="sim"/> Sim</label>
+          <label><input type="radio" name="q4" value="nao"/> Não</label>
+        </div>
+        <small class="muted">Peso 1.5 — Registros e fichas técnicas organizados.</small>
+      </fieldset>
+      <fieldset class="q">
+        <legend>5. Treinamentos/ASO/PCMSO atualizados?</legend>
+        <div class="yn">
+          <label><input type="radio" name="q5" value="sim"/> Sim</label>
+          <label><input type="radio" name="q5" value="nao"/> Não</label>
+        </div>
+        <small class="muted">Peso 1.5 — Saúde e segurança ocupacional.</small>
+      </fieldset>
+      <fieldset class="q">
+        <legend>6. Plano de resíduos (quando aplicável, RDC 222/2018)?</legend>
+        <div class="yn">
+          <label><input type="radio" name="q6" value="sim"/> Sim</label>
+          <label><input type="radio" name="q6" value="nao"/> Não</label>
+        </div>
+        <small class="muted">Peso 1.0 — Gestão e destinação adequadas.</small>
+      </fieldset>
+      <fieldset class="q">
+        <legend>7. Registros de serviço (laudos, evidências, antes/depois)?</legend>
+        <div class="yn">
+          <label><input type="radio" name="q7" value="sim"/> Sim</label>
+          <label><input type="radio" name="q7" value="nao"/> Não</label>
+        </div>
+        <small class="muted">Peso 1.0 — Rastreabilidade do atendimento.</small>
+      </fieldset>
+      <fieldset class="q">
+        <legend>8. EPIs: inventário e controle de entrega?</legend>
+        <div class="yn">
+          <label><input type="radio" name="q8" value="sim"/> Sim</label>
+          <label><input type="radio" name="q8" value="nao"/> Não</label>
+        </div>
+        <small class="muted">Peso 1.0 — Segurança do time operacional.</small>
+      </fieldset>
+      <fieldset class="q">
+        <legend>9. LGPD: política e consentimento de clientes?</legend>
+        <div class="yn">
+          <label><input type="radio" name="q9" value="sim"/> Sim</label>
+          <label><input type="radio" name="q9" value="nao"/> Não</label>
+        </div>
+        <small class="muted">Peso 1.0 — Governança mínima de dados pessoais.</small>
+      </fieldset>
+      <fieldset class="q">
+        <legend>10. Procedimento para não conformidades e ações corretivas?</legend>
+        <div class="yn">
+          <label><input type="radio" name="q10" value="sim"/> Sim</label>
+          <label><input type="radio" name="q10" value="nao"/> Não</label>
+        </div>
+        <small class="muted">Peso 1.0 — Melhoria contínua e rastreabilidade.</small>
+      </fieldset>
+
+      <div class="actions no-print">
+        <button class="primary" id="calcBtn">Calcular Score & Gerar Relatório</button>
+        <button class="ghost" id="limparBtn">Limpar</button>
+      </div>
+      <p class="disclaimer">Este é um protótipo de demonstração. Não substitui auditoria oficial. Use para autoavaliação inicial e próximos passos.</p>
+    </section>
+
+    <aside class="card">
+      <h2>3) Resultado</h2>
+      <div id="placeholder" class="muted">Preencha o formulário e clique em <b>Calcular</b> para ver seu resultado aqui.</div>
+      <div class="result" id="result">
+        <div class="print-only"><h2>Relatório – Scanner de Compliance</h2></div>
+        <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap">
+          <div class="badge">Badge Provisório • Candidato a Empresa Verificada</div>
+          <span id="nivelPill" class="pill">—</span>
+        </div>
+        <div style="margin-top:10px">
+          <div class="score" id="score">0</div>
+          <div class="muted" id="nivel">—</div>
+        </div>
+        <hr/>
+        <h3>Diagnóstico</h3>
+        <ul class="list" id="gaps"></ul>
+        <h3>Plano 30 dias (sugestões)</h3>
+        <ul class="list" id="plan"></ul>
+        <div class="success" id="okMsg">Dados enviados com sucesso. Obrigado! ✅</div>
+        <div class="error" id="errMsg">Não foi possível enviar agora. Tente novamente. ❌</div>
+        <hr/>
+        <h3>4) Captação (opcional)</h3>
+        <p class="muted">Confirme seu interesse em se tornar associado fundador e receber propostas de negócio.</p>
+        <div class="two">
+          <div>
+            <label>Cidade</label>
+            <input id="cidade" type="text" placeholder="Ex.: Jundiaí"/>
+          </div>
+          <div>
+            <label>Segmentos de interesse</label>
+            <input id="segmentos" type="text" placeholder="Ex.: condomínios, alimentos, saúde"/>
+          </div>
+        </div>
+        <div class="actions no-print">
+          <button class="primary" id="sendBtn">Enviar Dados</button>
+          <button class="ghost" id="printBtn">Baixar Relatório (PDF)</button>
+          <button class="ghost" id="copyBtn">Copiar Resumo</button>
+          <button class="ghost" id="whatsBtn">WhatsApp</button>
+        </div>
+        <p class="footer">Gerado em <span id="quando"></span> • Evento Jundiaí • MVP v0.2</p>
+      </div>
+    </aside>
+  </div>
+
+<script>
+(function(){
+  // ======== CONFIG ========
+  // Opcional: coloque aqui um webhook para capturar leads (Apps Script, SheetDB, Zapier etc.).
+  // Ex.: const WEBHOOK_URL = "https://script.google.com/macros/s/SEU_DEPLOY_ID/exec";
+  const WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbwHMTCnfoPki1-KD7WUP8o8dGpFwB9HTtbk7aDFm3LkN8Jh3qlBYaFiY9XnAA86UU8o/exec";
+
+  const weights = { q1:2.0, q2:2.0, q3:2.0, q4:1.5, q5:1.5, q6:1.0, q7:1.0, q8:1.0, q9:1.0, q10:1.0 };
+  const total = Object.values(weights).reduce((a,b)=>a+b,0);
+
+  const sel = s=>document.querySelector(s);
+  const selAll = s=>Array.from(document.querySelectorAll(s));
+
+  function getAnswer(name){
+    const el = document.querySelector(`input[name="${name}"]:checked`);
+    return el? el.value : null;
+  }
+
+  function scoreLevel(n){
+    if(n < 40) return {label:"Crítico – precisa de ajustes imediatos", cls:"crit"};
+    if(n < 70) return {label:"Em evolução – priorize gaps-chave", cls:"warn"};
+    if(n < 86) return {label:"Audit-Ready – ajustes finais", cls:"ok"};
+    return {label:"Excelência – pronto para vitrine", cls:"ok"};
+  }
+
+  function buildPlan(missing){
+    const tipsMap = {
+      q1:"Nomeie/regularize o Responsável Técnico e formalize o vínculo.",
+      q2:"Escreva/atualize POPs essenciais e colha assinaturas.",
+      q3:"Renove/regularize a licença sanitária e mantenha-a disponível.",
+      q4:"Organize registros ANVISA, FISPQ e rastreabilidade dos saneantes.",
+      q5:"Atualize ASO/PCMSO e calendário de treinamentos.",
+      q6:"Implemente o plano de resíduos conforme aplicável (RDC 222/2018).",
+      q7:"Padronize laudos e evidências (antes/depois, assinaturas digitais).",
+      q8:"Crie inventário de EPIs e controle de entrega/validade.",
+      q9:"Publique política de privacidade e revise consentimentos (LGPD).",
+      q10:"Defina fluxo de não conformidades com ações corretivas e registro."
+    };
+    return missing.map(k=>tipsMap[k]||"Ação recomendada");
+  }
+
+  function compute(){
+    // Validação básica
+    if(!sel('#empresa').value || !sel('#contato').value || !sel('#email').value || !sel('#uf').value){
+      alert('Preencha os campos obrigatórios (empresa, contato, e-mail, UF).');
+      return;
+    }
+    if(!sel('#lgpd').checked){
+      alert('É necessário consentir o uso de dados (LGPD) para gerar o relatório.');
+      return;
+    }
+
+    let pts=0; const missing=[];
+    for(const q in weights){
+      const a = getAnswer(q);
+      if(a==="sim") pts += weights[q];
+      if(a==="nao" || a===null) missing.push(q);
+    }
+    const pct = Math.round((pts/total)*100);
+    const level = scoreLevel(pct);
+
+    // UI
+    sel('#placeholder').style.display='none';
+    sel('#result').style.display='block';
+    sel('#score').textContent = pct;
+    sel('#nivel').textContent = level.label;
+    const pill = sel('#nivelPill');
+    pill.textContent = pct+" pontos";
+    pill.className = 'pill ' + level.cls;
+
+    // gaps
+    const gapsList = sel('#gaps');
+    gapsList.innerHTML='';
+    missing.forEach(q=>{
+      const idx = parseInt(q.replace('q',''));
+      const legend = document.querySelectorAll('fieldset.q legend')[idx-1];
+      const li = document.createElement('li');
+      li.textContent = legend ? legend.textContent : q;
+      gapsList.appendChild(li);
+    });
+
+    // plano
+    const planList = sel('#plan');
+    planList.innerHTML='';
+    buildPlan(missing).forEach(t=>{
+      const li = document.createElement('li'); li.textContent = t; planList.appendChild(li);
+    });
+
+    // quando
+    sel('#quando').textContent = new Date().toLocaleString('pt-BR');
+  }
+
+  function clearAll(){
+    selAll('input[type=text], input[type=email], input[type=tel]').forEach(i=>i.value='');
+    sel('#uf').value='';
+    sel('#lgpd').checked=false;
+    selAll('input[type=radio]').forEach(r=>r.checked=false);
+    sel('#result').style.display='none';
+    sel('#placeholder').style.display='block';
+  }
+
+  function printReport(){ window.print(); }
+
+  async function copySummary(){
+    const empresa = sel('#empresa').value;
+    const pct = sel('#score').textContent;
+    const nivel = sel('#nivel').textContent;
+    const gaps = Array.from(selAll('#gaps li')).map(li=>`- \${li.textContent}`).join('\n');
+    const plan = Array.from(selAll('#plan li')).map(li=>`- \${li.textContent}`).join('\n');
+    const txt = `Relatório – Scanner de Compliance\nEmpresa: \${empresa}\nScore: \${pct}\nNível: \${nivel}\n\nGaps:\n\${gaps}\n\nPlano 30 dias:\n\${plan}`;
+    try{ await navigator.clipboard.writeText(txt); alert('Resumo copiado para a área de transferência.'); }catch(e){ alert('Copie manualmente:\n\n'+txt); }
+  }
+
+  function whats(){
+    const empresa = encodeURIComponent(sel('#empresa').value);
+    const pct = encodeURIComponent(sel('#score').textContent);
+    const nivel = encodeURIComponent(sel('#nivel').textContent);
+    const msg = `Olá! Gostaria de aderir como membro fundador. Empresa: \${empresa}. Score: \${pct}. Nível: \${nivel}.`;
+    window.open('https://wa.me/5511973241927?text='+msg,'_blank');
+  }
+
+  async function sendLead(){
+    // Monta o payload para envio via Formspree
+    const payload = {
+      empresa: sel('#empresa').value,
+      cnpj: sel('#cnpj').value,
+      contato: sel('#contato').value,
+      email: sel('#email').value,
+      whats: sel('#whats').value,
+      uf: sel('#uf').value,
+      score: sel('#score').textContent,
+      nivel: sel('#nivel').textContent,
+      cidade: sel('#cidade').value,
+      segmentos: sel('#segmentos').value,
+      created_at: new Date().toISOString(),
+      _subject: `Novo Lead: ${sel('#empresa').value} - Score ${sel('#score').textContent}`,
+      _replyto: sel('#email').value
+    };
+
+    const ok = sel('#okMsg'); const err = sel('#errMsg');
+    ok.style.display='none'; err.style.display='none';
+    
+    // Mostra status de envio
+    ok.innerHTML = '<strong>📤 Enviando dados...</strong>';
+    ok.style.display='block';
+
+    try{
+      // Enviar via Formspree
+      const response = await fetch('https://formspree.io/f/mpwjozqe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+      
+      if (response.ok) {
+        ok.innerHTML = `
+          <strong>✅ Lead enviado com sucesso!</strong><br>
+          <small>Os dados foram enviados para a equipe PragHub.<br>
+          Você receberá um retorno em breve no email: <strong>${payload.email}</strong></small>
+        `;
+      } else {
+        throw new Error(`Erro HTTP: ${response.status}`);
+      }
+      
+    }catch(e){
+      console.error('Erro ao enviar via Formspree:', e);
+      
+      // Fallback: exibe os dados na tela para cópia manual
+      const emailBody = `Novo Lead - Scanner de Compliance\n\n` +
+        `Empresa: ${payload.empresa}\n` +
+        `CNPJ: ${payload.cnpj}\n` +
+        `Contato: ${payload.contato}\n` +
+        `Email: ${payload.email}\n` +
+        `WhatsApp: ${payload.whats}\n` +
+        `UF: ${payload.uf}\n` +
+        `Score: ${payload.score}\n` +
+        `Nível: ${payload.nivel}\n` +
+        `Cidade: ${payload.cidade}\n` +
+        `Segmentos: ${payload.segmentos}\n` +
+        `Data: ${payload.created_at}`;
+      
+      ok.innerHTML = `
+        <strong>⚠️ Erro no envio automático</strong><br>
+        <small>Por favor, copie os dados abaixo e envie para: <strong>leads@praghub.com</strong></small><br>
+        <textarea readonly style="width:100%;height:150px;margin-top:10px;font-size:12px;">${emailBody}</textarea>
+      `;
+    }
+  }
+
+  sel('#calcBtn').addEventListener('click', compute);
+  sel('#limparBtn').addEventListener('click', clearAll);
+  sel('#printBtn').addEventListener('click', printReport);
+  sel('#copyBtn').addEventListener('click', copySummary);
+  sel('#whatsBtn').addEventListener('click', whats);
+  sel('#sendBtn').addEventListener('click', sendLead);
+})();
+</script>
+</body>
+</html>

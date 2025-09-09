@@ -1,0 +1,1713 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scanner de Compliance LGPD - Praghub | Avaliação Gratuita de Conformidade</title>
+    <meta name="description" content="Avalie gratuitamente o nível de compliance LGPD da sua empresa em minutos. Scanner inteligente com diagnóstico personalizado e plano de ação. Praghub - Tecnologia para Compliance.">
+    <meta name="keywords" content="compliance, LGPD, scanner, avaliação, diagnóstico, conformidade, proteção dados, Praghub">
+    <meta name="author" content="Praghub">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://praghub.vercel.app/scanner.html">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./public/1.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./public/1.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./public/1.png">
+    <link rel="apple-touch-icon" href="./public/1.png">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://praghub.vercel.app/scanner.html">
+    <meta property="og:title" content="Scanner de Compliance LGPD - Praghub | Avaliação Gratuita">
+    <meta property="og:description" content="Avalie gratuitamente o nível de compliance LGPD da sua empresa em minutos. Scanner inteligente com diagnóstico personalizado.">
+    <meta property="og:image" content="https://praghub.vercel.app/public/1.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Praghub">
+    <meta property="og:locale" content="pt_BR">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://praghub.vercel.app/scanner.html">
+    <meta property="twitter:title" content="Scanner de Compliance LGPD - Praghub">
+    <meta property="twitter:description" content="Avalie gratuitamente o nível de compliance LGPD da sua empresa em minutos.">
+    <meta property="twitter:image" content="https://praghub.vercel.app/public/1.png">
+    
+    <!-- LinkedIn -->
+    <meta property="linkedin:owner" content="Praghub">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="./manifest.json">
+    <meta name="theme-color" content="#135bec">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Praghub Scanner">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="./public/2.png" as="image" type="image/png">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://formspree.io">
+    
+    <!-- GSAP Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Scanner de Compliance LGPD - Praghub",
+        "description": "Avalie gratuitamente o nível de compliance LGPD da sua empresa em minutos. Scanner inteligente com diagnóstico personalizado e plano de ação.",
+        "url": "https://praghub.vercel.app/scanner.html",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "BRL",
+            "availability": "https://schema.org/InStock"
+        },
+        "provider": {
+            "@type": "Organization",
+            "name": "Praghub",
+            "url": "https://praghub.vercel.app",
+            "logo": "https://praghub.vercel.app/public/logo-praghub.png"
+        },
+        "featureList": [
+            "Avaliação gratuita de compliance LGPD",
+            "Diagnóstico personalizado",
+            "Plano de ação de 30 dias",
+            "Recomendações específicas",
+            "Interface intuitiva"
+        ]
+    }
+    </script>
+    
+    <style>
+        :root {
+            --primary-color: #135bec;
+            --primary-hover: #0f4bc4;
+            --text-dark: #1a1a1a;
+            --text-light: #666;
+            --bg-light: #f8fafc;
+            --border-light: #e2e8f0;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --danger-color: #ef4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+        
+        .logo:hover {
+            transform: scale(1.05);
+        }
+        
+        .logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        .nav-back {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-back:hover {
+            color: var(--primary-color);
+        }
+
+        /* Main Content */
+        .main {
+            padding-top: 100px;
+            min-height: 100vh;
+        }
+
+        .scanner-hero {
+            text-align: center;
+            padding: 60px 0;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+
+        .scanner-hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, #0f4bc4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .scanner-hero p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Scanner Form */
+        .scanner-section {
+            padding: 80px 0;
+        }
+
+        .scanner-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+
+        .scanner-header {
+            background: var(--bg-light);
+            padding: 32px;
+            text-align: center;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .scanner-header h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .scanner-header p {
+            color: var(--text-light);
+        }
+
+        .scanner-form {
+            padding: 40px;
+            min-height: auto;
+        }
+
+        .question {
+            margin-bottom: 32px;
+            display: none;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+            min-height: auto;
+            height: auto;
+        }
+
+        .question.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+            animation: fadeInUp 0.5s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .question h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--text-dark);
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .option {
+            display: flex;
+            align-items: center;
+            padding: 16px;
+            border: 2px solid var(--border-light);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .option:hover {
+            border-color: var(--primary-color);
+            background: rgba(19, 91, 236, 0.02);
+        }
+
+        .option input[type="radio"] {
+            margin-right: 12px;
+            accent-color: var(--primary-color);
+        }
+
+        .option.selected {
+            border-color: var(--primary-color);
+            background: rgba(19, 91, 236, 0.05);
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background: var(--border-light);
+            border-radius: 3px;
+            margin-bottom: 32px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), #0f4bc4);
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+
+        .navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 32px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-light);
+            border: 1px solid var(--border-light);
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-light);
+            color: var(--text-dark);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Results */
+        .results {
+            display: none;
+            text-align: center;
+            padding: 40px;
+            min-height: auto;
+            height: auto;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+
+        .results.show {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .badge-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .compliance-badge {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            display: inline-block;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .score-status {
+            margin-top: 1rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .diagnosis-section, .plan-section {
+            text-align: left;
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .diagnosis-section h4, .plan-section h4 {
+            color: #333;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .diagnosis-section ul, .plan-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .diagnosis-section li, .plan-section li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #e9ecef;
+            color: #666;
+        }
+
+        .diagnosis-section li:last-child, .plan-section li:last-child {
+            border-bottom: none;
+        }
+
+        .timestamp-info {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e9ecef;
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .capacitacao-section {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            margin-top: 2rem;
+            padding: 2rem;
+        }
+
+        .capacitacao-content h3 {
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .capacitacao-content p {
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .capacitacao-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .capacitacao-buttons .btn {
+            flex: 1;
+            min-width: 150px;
+        }
+
+        .score-circle {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .score-excellent {
+            background: linear-gradient(135deg, var(--success-color), #059669);
+        }
+
+        .score-good {
+            background: linear-gradient(135deg, var(--warning-color), #d97706);
+        }
+
+        .score-poor {
+            background: linear-gradient(135deg, var(--danger-color), #dc2626);
+        }
+
+        .results h3 {
+            font-size: 1.8rem;
+            margin-bottom: 16px;
+        }
+
+        .results p {
+            color: var(--text-light);
+            margin-bottom: 32px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .recommendations {
+            text-align: left;
+            background: var(--bg-light);
+            padding: 24px;
+            border-radius: 12px;
+            margin: 32px 0;
+            min-height: auto;
+            height: auto;
+        }
+
+        .recommendations h4 {
+            font-size: 1.2rem;
+            margin-bottom: 16px;
+            color: var(--text-dark);
+        }
+
+        .recommendations ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .recommendations li {
+            padding: 8px 0;
+            padding-left: 24px;
+            position: relative;
+        }
+
+        .recommendations li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--success-color);
+            font-weight: 600;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 16px;
+            }
+
+            .scanner-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .scanner-form {
+                padding: 24px;
+            }
+
+            .navigation-buttons {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .options {
+                gap: 8px;
+            }
+
+            .option {
+                padding: 12px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <a href="index.html" class="logo">
+                <img src="./public/2.png" alt="Praghub - Tecnologia para Compliance" class="logo" loading="eager" style="height: 60px; width: auto; transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.1)'; this.style.filter='brightness(1.1)'" onmouseout="this.style.transform='scale(1)'; this.style.filter='brightness(1)';">
+            </a>
+                <a href="index.html" class="nav-back">← Voltar ao início</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Hero Section -->
+        <section class="scanner-hero">
+            <div class="container">
+                <h1 class="fade-in-up">Scanner de Compliance</h1>
+                <p class="fade-in-up">Descubra em segundos se sua empresa está em dia com as principais exigências do setor de controle de pragas.</p>
+            </div>
+        </section>
+
+        <!-- Scanner Section -->
+        <section class="scanner-section">
+            <div class="container">
+                <div class="scanner-container">
+                    <div class="scanner-header">
+                        <h2>Avaliação de Compliance</h2>
+                        <p>Responda às perguntas abaixo para receber sua pontuação personalizada</p>
+                    </div>
+
+                    <div class="scanner-form">
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill"></div>
+                        </div>
+
+                        <form id="complianceForm">
+                            <!-- Question 1 - Responsável Técnico (Peso 2.0) -->
+                            <div class="question" data-question="1" data-weight="2.0">
+                                <h3>1. Responsável Técnico ativo conforme legislação?</h3>
+                                <div class="options">
+                                    <label class="option">
+                                        <input type="radio" name="q1" value="10">
+                                        <span>Sim, nomeado e com vínculo formalizado</span>
+                                    </label>
+                                    <label class="option">
+                                        <input type="radio" name="q1" value="5">
+                                        <span>Sim, mas vínculo precisa ser regularizado</span>
+                                    </label>
+                                    <label class="option">
+                                        <input type="radio" name="q1" value="0">
+                                        <span>Não possui ou não está ativo</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Question 2 - POPs (Peso 2.0) -->
+                            <div class="question" data-question="2" data-weight="2.0">
+                                <h3>2. POPs (procedimentos) assinados e atualizados?</h3>
+                                <div class="options">
+                                    <label class="option">
+                                        <input type="radio" name="q2" value="10">
+                                        <span>Sim, todos assinados e atualizados</span>
+                                    </label>
+                                    <label class="option">
+                                        <input type="radio" name="q2" value="5">
+                                        <span>Parcialmente, alguns precisam atualização</span>
+                                    </label>
+                                    <label class="option">
+                                        <input type="radio" name="q2" value="0">
+                                        <span>Não possui ou estão desatualizados</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Question 3 - Licença Sanitária (Peso 2.0) -->
+                            <div class="question" data-question="3" data-weight="2.0">
+                                <h3>3. Licença sanitária válida?</h3>
+                                <div class="options">
+                                    <label class="option">
+                                        <input type="radio" name="q3" value="10">
+                                        <span>Sim, válida e disponível</span>
+                                    </label>
+                                    <label class="option">
+                                        <input type="radio" name="q3" value="5">
+                                        <span>Válida, mas precisa renovação em breve</span>
+                                    </label>
+                                    <label class="option">
+                                        <input type="radio" name="q3" value="0">
+                                        <span>Vencida ou não possui</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Question 4 - Rastreabilidade (Peso 1.5) -->
+                            <div class="question" data-question="4" data-weight="1.5">
+                                <h3>4. Rastreabilidade de saneantes (origem, lote, validade)?</h3>
+                                <div class="options">
+                                    <label class="option">
+                                        <input type="radio" name="q4" value="10">
+                                        <span>Sim, controle completo de rastreabilidade</span>
+                                    </label>
+                                    <label class="option">
+                                        <input type="radio" name="q4" value="5">
+                                        <span>Parcial, alguns produtos rastreados</span>
+                                    </label>
+                                    <label class="option">
+                                        <input type="radio" name="q4" value="0">
+                                        <span>Não há controle de rastreabilidade</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Question 5 - Treinamentos (Peso 1.5) -->
+                            <div class="question" data-question="5" data-weight="1.5">
+                                <h3>5. Treinamentos, ASO e PCMSO em dia?</h3>
+                                <div class="options">
+                                    <label class="option">
+                                        <input type="radio" name="q5" value="10">
+                                        <span>Sim, todos em dia e documentados</span>
+                                    </label>
+                                    <label class="option">
+                                        <input type="radio" name="q5" value="5">
+                                        <span>Parcialmente, alguns precisam atualização</span>
+                                    </label>
+                                    <label class="option">
+                                        <input type="radio" name="q5" value="0">
+                                        <span>Não possui ou estão vencidos</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Question 6 - Plano de Resíduos (Peso 1.0) -->
+                            <div class="question" data-question="6" data-weight="1.0">
+                                <h3>6. Plano de gerenciamento de resíduos implementado?</h3>
+                                <div class="options">
+                                    <label class="option">
+                                        <input type="radio" name="q6" value="10">
+                                        <span>Sim, plano completo e em execução</span>
+                                    </label>
+                                    <label class="option">
+                                        <input type="radio" name="q6" value="5">
+                                        <span>Parcial, precisa melhorias</span>
+                                    </label>
+                                    <label class="option">
+                                        <input type="radio" name="q6" value="0">
+                                        <span>Não possui plano estruturado</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Question 7 - Registros de Serviço (Peso 1.0) -->
+                            <div class="question" data-question="7" data-weight="1.0">
+                                <h3>7. Registros de serviço (laudos, evidências, antes/depois)?</h3>
+                                <div class="options">
+                                    <label class="option">
+                                        <input type="radio" name="q7" value="10">
+                                        <span>Sim, registros completos e padronizados</span>
+                                    </label>
+                                    <label class="option">
+                                        <input type="radio" name="q7" value="5">
+                                        <span>Parcial, alguns registros incompletos</span>
+                                    </label>
+                                    <label class="option">
+                                        <input type="radio" name="q7" value="0">
+                                        <span>Não mantém registros adequados</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Question 8 - EPIs (Peso 1.0) -->
+                            <div class="question" data-question="8" data-weight="1.0">
+                                <h3>8. EPIs adequados e com treinamento de uso?</h3>
+                                <div class="options">
+                                    <label class="option">
+                                        <input type="radio" name="q8" value="10">
+                                        <span>Sim, EPIs adequados com treinamento regular</span>
+                                    </label>
+                                    <label class="option">
+                                        <input type="radio" name="q8" value="5">
+                                        <span>EPIs disponíveis, treinamento irregular</span>
+                                    </label>
+                                    <label class="option">
+                                        <input type="radio" name="q8" value="0">
+                                        <span>EPIs inadequados ou sem treinamento</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Question 9 - LGPD (Peso 1.0) -->
+                            <div class="question" data-question="9" data-weight="1.0">
+                                <h3>9. Conformidade com LGPD (proteção de dados)?</h3>
+                                <div class="options">
+                                    <label class="option">
+                                        <input type="radio" name="q9" value="10">
+                                        <span>Sim, totalmente conforme com LGPD</span>
+                                    </label>
+                                    <label class="option">
+                                        <input type="radio" name="q9" value="5">
+                                        <span>Parcialmente, algumas adequações necessárias</span>
+                                    </label>
+                                    <label class="option">
+                                        <input type="radio" name="q9" value="0">
+                                        <span>Não adequado à LGPD</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Question 10 - Não Conformidades (Peso 1.0) -->
+                            <div class="question" data-question="10" data-weight="1.0">
+                                <h3>10. Controle de não conformidades e ações corretivas?</h3>
+                                <div class="options">
+                                    <label class="option">
+                                        <input type="radio" name="q10" value="10">
+                                        <span>Sim, sistema estruturado de controle</span>
+                                    </label>
+                                    <label class="option">
+                                        <input type="radio" name="q10" value="5">
+                                        <span>Parcial, controle informal</span>
+                                    </label>
+                                    <label class="option">
+                                        <input type="radio" name="q10" value="0">
+                                        <span>Não há controle estruturado</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="navigation-buttons">
+                                <button type="button" class="btn btn-secondary" id="prevBtn" disabled>← Anterior</button>
+                                <button type="button" class="btn btn-primary" id="nextBtn">Próxima →</button>
+                                <button type="button" class="btn btn-primary" id="submitBtn" style="display: none;">Ver Resultado</button>
+                            </div>
+                        </form>
+
+                        <!-- Results -->
+                        <div class="results" id="results">
+                            <div class="badge-section">
+                                <div class="compliance-badge">
+                                    <span class="badge-text">Badge Provisório • Candidato a Empresa Verificada</span>
+                                </div>
+                            </div>
+                            
+                            <div class="score-circle" id="scoreCircle">
+                                <span id="scoreText">0%</span>
+                            </div>
+                            <div class="score-status">
+                                <span id="scoreStatus">Em evolução – priorize gaps-chave</span>
+                            </div>
+                            
+                            <h3 id="resultTitle">Resultado da Avaliação</h3>
+                            <p id="resultDescription">Descrição do resultado...</p>
+                            
+                            <div class="diagnosis-section" id="diagnosis">
+                                <h4>Diagnóstico</h4>
+                                <ul id="diagnosisList">
+                                    <!-- Diagnosis will be added here -->
+                                </ul>
+                            </div>
+
+                            <div class="plan-section" id="plan">
+                                <h4>Plano 30 dias (sugestões)</h4>
+                                <ul id="planList">
+                                    <!-- Plan will be added here -->
+                                </ul>
+                            </div>
+
+                            <div class="navigation-buttons">
+                                <button type="button" class="btn btn-secondary" id="restartBtn">← Refazer Teste</button>
+                            </div>
+                            
+                            <div class="timestamp-info">
+                                <span id="timestampInfo">Gerado em --/--/----, --:--:-- • Evento Jundiaí • MVP v0.2</span>
+                            </div>
+                        </div>
+
+                        <!-- Capacitação Section -->
+                        <div id="capacitacao" class="capacitacao-section" style="display: none;">
+                            <div class="capacitacao-content">
+                                <h3>Capacitação (opcional)</h3>
+                                <p>Confirme seu interesse em se tornar associado fundador e receber capacitações e propostas de negócio.</p>
+                                
+                                <form id="leadForm" action="https://formspree.io/f/meolnakq" method="POST">
+                                    <div class="form-group">
+                                        <label for="empresa">Empresa</label>
+                                        <input type="text" id="empresa" name="empresa" placeholder="Nome da sua empresa" required>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="nome">Seu nome</label>
+                                        <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="email">E-mail</label>
+                                        <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="whatsapp">WhatsApp</label>
+                                        <input type="tel" id="whatsapp" name="whatsapp" placeholder="(11) 99999-9999" required>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="cidade">Cidade</label>
+                                        <input type="text" id="cidade" name="cidade" placeholder="Ex.: Jundiaí" required>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="segmentos">Segmentos de interesse</label>
+                                        <input type="text" id="segmentos" name="segmentos" placeholder="Ex.: condomínios, alimentos, saúde" required>
+                                    </div>
+                                    
+                                    <!-- Campos ocultos para dados do diagnóstico -->
+                                    <input type="hidden" id="diagnostico_score" name="diagnostico_score">
+                                    <input type="hidden" id="diagnostico_categoria" name="diagnostico_categoria">
+                                    <input type="hidden" id="diagnostico_recomendacoes" name="diagnostico_recomendacoes">
+                                    <input type="hidden" id="diagnostico_respostas" name="diagnostico_respostas">
+                                    <input type="hidden" id="diagnostico_timestamp" name="diagnostico_timestamp">
+                                    <input type="hidden" id="diagnostico_evento" name="diagnostico_evento" value="Scanner de Compliance - Jundiaí">
+                                    <input type="hidden" id="diagnostico_versao" name="diagnostico_versao" value="MVP v0.2">
+                                    
+                                    <div class="capacitacao-buttons">
+                                         <button type="submit" class="btn btn-primary" id="enviarDados">Enviar Dados</button>
+                                         <button type="button" class="btn btn-secondary" id="copiarResumo">Copiar Resumo</button>
+                                         <button type="button" class="btn btn-secondary" id="whatsappBtn">WhatsApp</button>
+                                     </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        class ComplianceScanner {
+            constructor() {
+                this.currentQuestion = 1;
+                this.totalQuestions = 10;
+                this.answers = {};
+                this.questionWeights = {
+                    1: 2.0, // Responsável Técnico
+                    2: 2.0, // POPs
+                    3: 2.0, // Licença sanitária
+                    4: 1.5, // Rastreabilidade
+                    5: 1.5, // Treinamentos
+                    6: 1.0, // Plano de resíduos
+                    7: 1.0, // Registros de serviço
+                    8: 1.0, // EPIs
+                    9: 1.0, // LGPD
+                    10: 1.0 // Não conformidades
+                };
+                this.init();
+            }
+
+            init() {
+                this.bindEvents();
+                this.showQuestion(1);
+                this.updateProgress();
+                this.updateNavigationButtons();
+            }
+
+            bindEvents() {
+                // Prevent form submission
+                const form = document.querySelector('.scanner-form form');
+                if (form) {
+                    form.addEventListener('submit', (e) => {
+                        e.preventDefault();
+                        return false;
+                    });
+                }
+
+                document.getElementById('nextBtn').addEventListener('click', () => this.nextQuestion());
+                document.getElementById('prevBtn').addEventListener('click', () => this.prevQuestion());
+                document.getElementById('submitBtn').addEventListener('click', (e) => {
+                    e.preventDefault();
+                    this.showResults();
+                });
+                document.getElementById('restartBtn').addEventListener('click', () => this.restart());
+
+                // Handle option selection
+                document.querySelectorAll('input[type="radio"]').forEach(input => {
+                    input.addEventListener('change', (e) => {
+                        this.selectOption(e.target);
+                        this.answers[e.target.name] = parseInt(e.target.value);
+                        this.updateNavigationButtons();
+                    });
+                });
+            }
+
+            selectOption(input) {
+                // Remove selected class from all options in this question
+                const question = input.closest('.question');
+                question.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected'));
+                
+                // Add selected class to chosen option
+                input.closest('.option').classList.add('selected');
+            }
+
+            nextQuestion() {
+                if (this.currentQuestion < this.totalQuestions) {
+                    this.hideQuestion(this.currentQuestion);
+                    this.currentQuestion++;
+                    this.showQuestion(this.currentQuestion);
+                    this.updateProgress();
+                    this.updateNavigationButtons();
+                }
+            }
+
+            prevQuestion() {
+                if (this.currentQuestion > 1) {
+                    this.hideQuestion(this.currentQuestion);
+                    this.currentQuestion--;
+                    this.showQuestion(this.currentQuestion);
+                    this.updateProgress();
+                    this.updateNavigationButtons();
+                }
+            }
+
+            hideQuestion(questionNum) {
+                const question = document.querySelector(`[data-question="${questionNum}"]`);
+                if (question) {
+                    gsap.to(question, {
+                        duration: 0.3,
+                        opacity: 0,
+                        y: -20,
+                        ease: "power2.out",
+                        onComplete: () => {
+                            question.classList.remove('active');
+                            question.style.display = 'none';
+                        }
+                    });
+                }
+            }
+
+            showQuestion(questionNum) {
+                const question = document.querySelector(`[data-question="${questionNum}"]`);
+                if (question) {
+                    question.style.display = 'block';
+                    question.classList.add('active');
+                    
+                    // Animate question entrance
+                    gsap.fromTo(question, 
+                        {
+                            opacity: 0,
+                            y: 30
+                        },
+                        {
+                            duration: 0.5,
+                            opacity: 1,
+                            y: 0,
+                            ease: "power2.out"
+                        }
+                    );
+                    
+                    // Animate options with stagger
+                    const options = question.querySelectorAll('.option');
+                    gsap.fromTo(options,
+                        {
+                            opacity: 0,
+                            y: 20
+                        },
+                        {
+                            duration: 0.4,
+                            opacity: 1,
+                            y: 0,
+                            ease: "power2.out",
+                            stagger: 0.1,
+                            delay: 0.2
+                        }
+                    );
+                }
+            }
+
+            updateProgress() {
+                const progress = (this.currentQuestion / this.totalQuestions) * 100;
+                const progressFill = document.getElementById('progressFill');
+                
+                if (progressFill) {
+                    gsap.to(progressFill, {
+                        duration: 0.6,
+                        width: `${progress}%`,
+                        ease: "power2.out"
+                    });
+                }
+            }
+
+            updateNavigationButtons() {
+                const prevBtn = document.getElementById('prevBtn');
+                const nextBtn = document.getElementById('nextBtn');
+                const submitBtn = document.getElementById('submitBtn');
+
+                // Previous button
+                prevBtn.disabled = this.currentQuestion === 1;
+
+                // Next/Submit buttons
+                const currentAnswer = this.answers[`q${this.currentQuestion}`];
+                const hasAnswer = currentAnswer !== undefined;
+
+                if (this.currentQuestion === this.totalQuestions) {
+                    nextBtn.style.display = 'none';
+                    submitBtn.style.display = hasAnswer ? 'inline-flex' : 'none';
+                } else {
+                    nextBtn.style.display = hasAnswer ? 'inline-flex' : 'none';
+                    submitBtn.style.display = 'none';
+                }
+            }
+
+            calculateScore() {
+                let weightedScore = 0;
+                let totalWeight = 0;
+                let answeredQuestions = 0;
+
+                for (let i = 1; i <= this.totalQuestions; i++) {
+                    const questionKey = `q${i}`;
+                    if (this.answers[questionKey] !== undefined) {
+                        const questionScore = parseInt(this.answers[questionKey]);
+                        const weight = this.questionWeights[i];
+                        weightedScore += (questionScore * weight);
+                        totalWeight += (10 * weight); // 10 is max score per question
+                        answeredQuestions++;
+                    }
+                }
+
+                if (answeredQuestions === 0) return 0;
+                
+                // Calculate weighted percentage
+                return Math.round((weightedScore / totalWeight) * 100);
+            }
+
+            getScoreCategory(score) {
+                if (score >= 80) return 'excellent';
+                if (score >= 60) return 'good';
+                return 'poor';
+            }
+
+            getRecommendations(answers) {
+                const recommendations = [];
+                
+                if (answers.q1 < 10) recommendations.push('Regularizar licença sanitária');
+                if (answers.q2 < 10) recommendations.push('Certificar todos os técnicos');
+                if (answers.q3 < 10) recommendations.push('Implementar sistema de registros');
+                if (answers.q4 < 10) recommendations.push('Treinar equipe sobre uso de EPIs');
+                if (answers.q5 < 10) recommendations.push('Contratar seguro de responsabilidade civil');
+
+                return recommendations;
+            }
+
+            showResults() {
+                const score = this.calculateScore();
+                const scoreElement = document.getElementById('scoreText');
+                const titleElement = document.getElementById('resultTitle');
+                const descriptionElement = document.getElementById('resultDescription');
+                const diagnosisElement = document.getElementById('diagnosisList');
+                const planElement = document.getElementById('planList');
+                const timestampElement = document.getElementById('timestampInfo');
+
+                // Hide form and show results with animation
+                const form = document.querySelector('.scanner-form form');
+                const resultsDiv = document.getElementById('results');
+                
+                if (form) {
+                    gsap.to(form, {
+                        duration: 0.4,
+                        opacity: 0,
+                        y: -20,
+                        ease: "power2.out",
+                        onComplete: () => {
+                            form.style.display = 'none';
+                        }
+                    });
+                }
+                
+                if (!resultsDiv) return;
+                
+                // Show results with stagger animation
+                resultsDiv.classList.add('show');
+                
+                // Animate results elements with stagger
+                const resultElements = [
+                    resultsDiv.querySelector('.result-header'),
+                    resultsDiv.querySelector('.result-content'),
+                    resultsDiv.querySelector('.result-actions')
+                ].filter(el => el);
+                
+                gsap.fromTo(resultElements, 
+                    {
+                        opacity: 0,
+                        y: 30
+                    },
+                    {
+                        duration: 0.6,
+                        opacity: 1,
+                        y: 0,
+                        ease: "power2.out",
+                        stagger: 0.2,
+                        delay: 0.5
+                    }
+                );
+
+                // Update score display
+                scoreElement.textContent = score + ' pontos';
+                
+                const scoreCircle = document.getElementById('scoreCircle');
+                const category = this.getScoreCategory(score);
+                
+                if (scoreCircle) {
+                    scoreCircle.className = `score-circle score-${category}`;
+                    
+                    // Animate badge with bounce effect
+                    gsap.fromTo(scoreCircle,
+                        {
+                            scale: 0,
+                            rotation: -180
+                        },
+                        {
+                            duration: 0.8,
+                            scale: 1,
+                            rotation: 0,
+                            ease: "back.out(1.7)",
+                            delay: 0.8
+                        }
+                    );
+                }
+
+                // Generate diagnosis based on answers
+                const diagnosis = this.generateDiagnosis();
+                const plan = this.generatePlan();
+
+                // Determine result category
+                let title, description;
+                if (score >= 80) {
+                    title = 'Excelente Compliance!';
+                    description = 'Sua empresa demonstra alto nível de conformidade.';
+                } else if (score >= 60) {
+                    title = 'Bom Nível de Compliance';
+                    description = 'Sua empresa está no caminho certo, mas há algumas áreas para melhorar.';
+                } else {
+                    title = 'Em evolução – priorize gaps-chave';
+                    description = 'Sua empresa precisa focar nas áreas identificadas no diagnóstico.';
+                }
+
+                // Update DOM elements
+                if (titleElement) titleElement.textContent = title;
+                if (descriptionElement) descriptionElement.textContent = description;
+
+                // Update diagnosis
+                if (diagnosisElement) {
+                    diagnosisElement.innerHTML = '';
+                    diagnosis.forEach(item => {
+                        const li = document.createElement('li');
+                        li.textContent = item;
+                        diagnosisElement.appendChild(li);
+                    });
+                }
+
+                // Update plan
+                if (planElement) {
+                    planElement.innerHTML = '';
+                    plan.forEach(item => {
+                        const li = document.createElement('li');
+                        li.textContent = item;
+                        planElement.appendChild(li);
+                    });
+                }
+
+                // Update timestamp
+                if (timestampElement) {
+                    const now = new Date();
+                    const dateStr = now.toLocaleDateString('pt-BR');
+                    const timeStr = now.toLocaleTimeString('pt-BR');
+                    timestampElement.textContent = `Gerado em ${dateStr}, ${timeStr} • Evento Jundiaí • MVP v0.2`;
+                }
+                
+                // Show capacitacao section after a delay
+                setTimeout(() => {
+                    const capacitacaoDiv = document.getElementById('capacitacao');
+                    if (capacitacaoDiv) {
+                        capacitacaoDiv.style.display = 'block';
+                    }
+                }, 1000);
+                
+                // Scroll to results
+                setTimeout(() => {
+                    resultsDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 100);
+            }
+
+            generateDiagnosis() {
+                const questions = {
+                    1: '1. Responsável Técnico ativo conforme legislação?',
+                    2: '2. POPs (procedimentos) assinados e atualizados?',
+                    3: '3. Licença sanitária válida?',
+                    4: '4. Rastreabilidade de saneantes (origem, lote, validade)?',
+                    5: '5. Treinamentos, ASO e PCMSO em dia?',
+                    6: '6. Plano de gerenciamento de resíduos implementado?',
+                    7: '7. Registros de serviço (laudos, evidências, antes/depois)?',
+                    8: '8. EPIs adequados e com treinamento de uso?',
+                    9: '9. Conformidade com LGPD (proteção de dados)?',
+                    10: '10. Controle de não conformidades e ações corretivas?'
+                };
+
+                const diagnosis = [];
+                for (let i = 1; i <= this.totalQuestions; i++) {
+                    const questionKey = `q${i}`;
+                    if (this.answers[questionKey] !== undefined && parseInt(this.answers[questionKey]) === 0) {
+                        diagnosis.push(questions[i]);
+                    }
+                }
+
+                if (diagnosis.length === 0) {
+                    diagnosis.push('Parabéns! Todas as áreas avaliadas estão em conformidade.');
+                }
+
+                return diagnosis;
+            }
+
+            generatePlan() {
+                const plans = {
+                    1: 'Nomeie/regularize o Responsável Técnico e formalize o vínculo.',
+                    2: 'Escreva/atualize POPs essenciais e colha assinaturas.',
+                    3: 'Renove/regularize a licença sanitária e mantenha-a disponível.',
+                    4: 'Implemente sistema de rastreabilidade de produtos (origem, lote, validade).',
+                    5: 'Organize treinamentos e atualize ASO/PCMSO da equipe.',
+                    6: 'Desenvolva e implemente plano de gerenciamento de resíduos.',
+                    7: 'Padronize laudos e evidências (antes/depois, assinaturas digitais).',
+                    8: 'Forneça EPIs adequados e treine a equipe no uso correto.',
+                    9: 'Adeque processos à LGPD e implemente políticas de proteção de dados.',
+                    10: 'Crie sistema de controle de não conformidades e ações corretivas.'
+                };
+
+                const plan = [];
+                for (let i = 1; i <= this.totalQuestions; i++) {
+                    const questionKey = `q${i}`;
+                    if (this.answers[questionKey] !== undefined && parseInt(this.answers[questionKey]) === 0) {
+                        plan.push(plans[i]);
+                    }
+                }
+
+                if (plan.length === 0) {
+                    plan.push('Continue mantendo os altos padrões de qualidade e compliance.');
+                }
+
+                return plan;
+            }
+
+            restart() {
+                console.log('Restart called');
+                
+                this.currentQuestion = 1;
+                this.answers = {};
+                
+                // Reset form
+                const form = document.querySelector('.scanner-form form');
+                const resultsDiv = document.getElementById('results');
+                const recommendationsDiv = document.getElementById('recommendations');
+                
+                if (form) {
+                    form.style.display = 'block';
+                    console.log('Form shown');
+                }
+                
+                if (resultsDiv) {
+                    resultsDiv.classList.remove('show');
+                    console.log('Results hidden');
+                }
+                
+                if (recommendationsDiv) {
+                    recommendationsDiv.style.display = 'block';
+                }
+                
+                // Reset questions
+                document.querySelectorAll('.question').forEach(q => q.classList.remove('active'));
+                const firstQuestion = document.querySelector('[data-question="1"]');
+                if (firstQuestion) {
+                    firstQuestion.classList.add('active');
+                    console.log('First question activated');
+                }
+                
+                // Reset form inputs
+                document.querySelectorAll('input[type="radio"]').forEach(input => {
+                    input.checked = false;
+                    const option = input.closest('.option');
+                    if (option) {
+                        option.classList.remove('selected');
+                    }
+                });
+                
+                this.updateProgress();
+                this.updateNavigationButtons();
+                
+                // Scroll back to form
+                setTimeout(() => {
+                    const scannerSection = document.querySelector('.scanner-section');
+                    if (scannerSection) {
+                        scannerSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }, 100);
+                
+                console.log('Restart completed');
+            }
+        }
+
+        // Initialize scanner when page loads
+         document.addEventListener('DOMContentLoaded', () => {
+             window.scanner = new ComplianceScanner();
+             
+             // Bind capacitacao form events
+             const leadForm = document.getElementById('leadForm');
+             const enviarDadosBtn = document.getElementById('enviarDados');
+             const baixarPdfBtn = document.getElementById('baixarPdf');
+             const copiarResumoBtn = document.getElementById('copiarResumo');
+             const whatsappBtn = document.getElementById('whatsapp');
+             
+             if (leadForm) {
+                 leadForm.addEventListener('submit', function(e) {
+                     e.preventDefault();
+                     window.scanner.enviarDados();
+                 });
+             }
+             
+             if (copiarResumoBtn) {
+                 copiarResumoBtn.addEventListener('click', function() {
+                     window.scanner.copyResume();
+                 });
+             }
+             
+             const whatsappBtnNew = document.getElementById('whatsappBtn');
+             if (whatsappBtnNew) {
+                 whatsappBtnNew.addEventListener('click', function() {
+                     window.scanner.shareWhatsApp();
+                 });
+             }
+             
+             // Add GSAP hover effects to all buttons
+             document.querySelectorAll('.btn').forEach(btn => {
+                 btn.addEventListener('mouseenter', function() {
+                     if (!this.disabled) {
+                         gsap.to(this, {
+                             duration: 0.3,
+                             scale: 1.05,
+                             y: -3,
+                             boxShadow: '0 8px 25px rgba(0,0,0,0.15)',
+                             ease: "power2.out"
+                         });
+                     }
+                 });
+                 
+                 btn.addEventListener('mouseleave', function() {
+                     if (!this.disabled) {
+                         gsap.to(this, {
+                             duration: 0.3,
+                             scale: 1,
+                             y: 0,
+                             boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
+                             ease: "power2.out"
+                         });
+                     }
+                 });
+             });
+             
+             // Add GSAP focus effects to form inputs
+             document.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"], select').forEach(input => {
+                 input.addEventListener('focus', function() {
+                     gsap.to(this, {
+                         duration: 0.3,
+                         scale: 1.02,
+                         borderColor: '#667eea',
+                         boxShadow: '0 0 0 3px rgba(102, 126, 234, 0.1)',
+                         ease: "power2.out"
+                     });
+                 });
+                 
+                 input.addEventListener('blur', function() {
+                     gsap.to(this, {
+                         duration: 0.3,
+                         scale: 1,
+                         borderColor: '#e9ecef',
+                         boxShadow: '0 0 0 0px rgba(102, 126, 234, 0)',
+                         ease: "power2.out"
+                     });
+                 });
+             });
+         });
+        
+        // Add methods to ComplianceScanner class
+        ComplianceScanner.prototype.enviarDados = function() {
+            const empresa = document.getElementById('empresa').value;
+            const nome = document.getElementById('nome').value;
+            const email = document.getElementById('email').value;
+            const whatsapp = document.getElementById('whatsapp').value;
+            const cidade = document.getElementById('cidade').value;
+            const segmentos = document.getElementById('segmentos').value;
+            
+            if (!empresa || !nome || !email || !whatsapp || !cidade || !segmentos) {
+                alert('Por favor, preencha todos os campos antes de enviar.');
+                return;
+            }
+            
+            const score = this.calculateScore();
+            const diagnosis = this.generateDiagnosis();
+            const plan = this.generatePlan();
+            const timestamp = new Date().toLocaleString('pt-BR');
+            
+            // Preencher campos ocultos
+            document.getElementById('diagnostico_score').value = score;
+            document.getElementById('diagnostico_categoria').value = score >= 80 ? 'Excelente' : score >= 60 ? 'Bom' : 'Em evolução';
+            document.getElementById('diagnostico_recomendacoes').value = JSON.stringify(diagnosis);
+            document.getElementById('diagnostico_respostas').value = JSON.stringify(this.answers);
+            document.getElementById('diagnostico_timestamp').value = timestamp;
+            
+            // Show loading state with animation
+            const submitBtn = document.getElementById('enviarDados');
+            const originalText = submitBtn.textContent;
+            
+            // Animate button to loading state
+            gsap.to(submitBtn, {
+                duration: 0.3,
+                scale: 0.95,
+                ease: "power2.out",
+                onComplete: () => {
+                    submitBtn.innerHTML = '<span style="display: inline-flex; align-items: center; gap: 8px;">Enviando... <div style="width: 16px; height: 16px; border: 2px solid #ffffff40; border-top: 2px solid #ffffff; border-radius: 50%; animation: spin 1s linear infinite;"></div></span>';
+                    submitBtn.disabled = true;
+                    
+                    // Add CSS for spinner animation if not exists
+                    if (!document.querySelector('#spinner-style')) {
+                        const style = document.createElement('style');
+                        style.id = 'spinner-style';
+                        style.textContent = '@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }';
+                        document.head.appendChild(style);
+                    }
+                }
+            });
+            
+            // Enviar formulário diretamente
+            const form = document.getElementById('leadForm');
+            const formData = new FormData(form);
+            
+            fetch('https://formspree.io/f/meolnakq', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('✅ Dados enviados com sucesso! Entraremos em contato em breve.');
+                    form.reset();
+                } else {
+                    throw new Error('Erro no envio');
+                }
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+                alert('❌ Erro ao enviar dados. Tente novamente ou entre em contato conosco.');
+            })
+            .finally(() => {
+                // Restore button state with animation
+                gsap.to(submitBtn, {
+                    duration: 0.3,
+                    scale: 1,
+                    ease: "power2.out",
+                    onComplete: () => {
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.disabled = false;
+                    }
+                });
+            });
+        };
+        
+
+        
+        ComplianceScanner.prototype.copyResume = function() {
+            const score = this.calculateScore();
+            const diagnosis = this.generateDiagnosis();
+            const plan = this.generatePlan();
+            const timestamp = new Date().toLocaleString('pt-BR');
+            
+            const resumo = `SCANNER DE COMPLIANCE - RESULTADO\n\n` +
+                           `Badge Provisório • Candidato a Empresa Verificada\n` +
+                           `${score} pontos\n\n` +
+                           `Em evolução – priorize gaps-chave\n\n` +
+                           `Diagnóstico:\n${diagnosis.map(d => `• ${d}`).join('\n')}\n\n` +
+                           `Plano 30 dias (sugestões):\n${plan.map(p => `• ${p}`).join('\n')}\n\n` +
+                           `Gerado em ${timestamp} • Evento Jundiaí • MVP v0.2`;
+            
+            navigator.clipboard.writeText(resumo).then(() => {
+                alert('Resumo copiado para a área de transferência!');
+            }).catch(() => {
+                alert('Erro ao copiar resumo. Tente novamente.');
+            });
+        };
+        
+        ComplianceScanner.prototype.shareWhatsApp = function() {
+            const score = this.calculateScore();
+            const timestamp = new Date().toLocaleString('pt-BR');
+            
+            const mensagem = `🏆 RESULTADO DO SCANNER DE COMPLIANCE\n\n` +
+                            `Badge: Candidato a Empresa Verificada\n` +
+                            `Pontuação: ${score} pontos\n\n` +
+                            `📊 Status: Em evolução – priorize gaps-chave\n\n` +
+                            `Gerado em ${timestamp}\n` +
+                            `Evento Jundiaí • MVP v0.2`;
+            
+            const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(mensagem)}`;
+            window.open(whatsappUrl, '_blank');
+        };
+
+        // Header scroll effect with parallax
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            const scrollY = window.scrollY;
+            
+            // Header background effect
+            if (scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = 'none';
+            }
+            
+            // Subtle parallax effect on hero section
+            const heroSection = document.querySelector('.scanner-hero');
+            if (heroSection) {
+                gsap.set(heroSection, {
+                    y: scrollY * 0.3
+                });
+            }
+        });
+        
+        // Smooth scroll for all internal links
+         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+             anchor.addEventListener('click', function (e) {
+                 e.preventDefault();
+                 const target = document.querySelector(this.getAttribute('href'));
+                 if (target) {
+                     gsap.to(window, {
+                         duration: 1,
+                         scrollTo: target,
+                         ease: "power2.out"
+                     });
+                 }
+             });
+         });
+         
+         // Enhanced input feedback with validation animations
+         document.querySelectorAll('input, textarea, select').forEach(input => {
+             // Focus animations
+             input.addEventListener('focus', () => {
+                 gsap.to(input, {
+                     duration: 0.3,
+                     scale: 1.02,
+                     borderColor: '#007bff',
+                     boxShadow: '0 0 0 3px rgba(0, 123, 255, 0.1)',
+                     ease: 'power2.out'
+                 });
+             });
+             
+             input.addEventListener('blur', () => {
+                 const isValid = input.checkValidity();
+                 gsap.to(input, {
+                     duration: 0.3,
+                     scale: 1,
+                     borderColor: isValid ? '#28a745' : '#dc3545',
+                     boxShadow: isValid ? '0 0 0 2px rgba(40, 167, 69, 0.1)' : '0 0 0 2px rgba(220, 53, 69, 0.1)',
+                     ease: 'power2.out'
+                 });
+                 
+                 // Shake animation for invalid inputs
+                 if (!isValid && input.value) {
+                     gsap.to(input, {
+                         duration: 0.1,
+                         x: -5,
+                         yoyo: true,
+                         repeat: 3,
+                         ease: 'power2.inOut'
+                     });
+                 }
+             });
+             
+             // Real-time validation feedback
+             input.addEventListener('input', () => {
+                 if (input.value) {
+                     const isValid = input.checkValidity();
+                     gsap.to(input, {
+                         duration: 0.2,
+                         borderColor: isValid ? '#28a745' : '#dc3545',
+                         ease: 'power2.out'
+                     });
+                 }
+             });
+         });
+    </script>
+</body>
+</html>

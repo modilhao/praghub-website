@@ -1,0 +1,25 @@
+{
+  "name": "praghub-calculadora",
+  "version": "1.0.0",
+  "description": "Calculadora de Maturidade Digital da PragHub",
+  "main": "index.html",
+  "scripts": {
+    "dev": "python -m http.server 3000",
+    "build": "echo 'Build completed - files are in public directory'",
+    "start": "python -m http.server 3000"
+  },
+  "keywords": [
+    "calculadora",
+    "maturidade-digital",
+    "praghub",
+    "leads",
+    "formspree"
+  ],
+  "author": "PragHub",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/praghub/calculadora-maturidade-digital"
+  },
+  "homepage": "https://calculadora-praghub.vercel.app"
+}
