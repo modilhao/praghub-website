@@ -120,6 +120,7 @@
         .hero .container {
             position: relative;
             z-index: 2;
+            margin-top: 60px;
         }
 
         .hero h1 {
@@ -813,10 +814,12 @@
                         const rotatedY = point.x * Math.sin(rotateZ) + point.y * Math.cos(rotateZ);
                         const rotatedZ = point.z;
                         
-                        // Project to screen with 1.5x zoom
+                        // Project to screen with 1.5x zoom - Centralized
                         const scale = (1.2 + rotatedZ * 0.0008) * 1.5;
-                        const projX = width / 2 + rotatedX * scale;
-                        const projY = height / 2 + rotatedY * scale;
+                        const offsetX = width * 0.5;
+                        const offsetY = height * 0.45; // Slightly higher for better visual balance
+                        const projX = offsetX + rotatedX * scale;
+                        const projY = offsetY + rotatedY * scale;
                         
                         const pointVisible = rotatedZ > -50;
                         
@@ -859,10 +862,12 @@
                         const rotatedY = point.x * Math.sin(rotateZ) + point.y * Math.cos(rotateZ);
                         const rotatedZ = point.z;
                         
-                        // Project to screen with 1.5x zoom
+                        // Project to screen with 1.5x zoom - Centralized
                         const scale = (1.2 + rotatedZ * 0.0008) * 1.5;
-                        const projX = width / 2 + rotatedX * scale;
-                        const projY = height / 2 + rotatedY * scale;
+                        const offsetX = width * 0.5;
+                        const offsetY = height * 0.45; // Slightly higher for better visual balance
+                        const projX = offsetX + rotatedX * scale;
+                        const projY = offsetY + rotatedY * scale;
                         
                         const pointVisible = rotatedZ > -50;
                         
