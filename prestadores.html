@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seja um Prestador PragHub - Oportunidades e Certificação</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="./1.png">
+    <link rel="apple-touch-icon" href="./1.png">
+    <meta property="og:image" content="./1.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:image" content="./1.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #135bec;
+            --primary-hover: #0f4fd1;
+            --text-primary: #2d3748;
+            --text-secondary: #718096;
+            --text-light: #a0aec0;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f7fafc;
+            --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --border-color: #e2e8f0;
+            --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--bg-primary);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-sm {
+            padding: 60px 0;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-cta {
+            background: var(--primary-color);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            background: var(--primary-hover);
+            transform: translateY(-1px);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 100px 0;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 2;
+            margin-top: 60px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--primary-color) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 500;
+        }
+
+        .hero .description {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-md);
+        }
+
+        .cta-button:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Process Section */
+        .process-section {
+            background: var(--bg-secondary);
+        }
+
+        .process-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .process-content h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: var(--text-primary);
+        }
+
+        .process-content p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 60px;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .process-step {
+            background: white;
+            padding: 40px 32px;
+            border-radius: 16px;
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .process-step:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-color), #667eea);
+            border-radius: 50%;
+            margin: 0 auto 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .process-step h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+
+        .process-step p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .process-note {
+            background: linear-gradient(135deg, #f0f7ff, #e6f2ff);
+            padding: 24px;
+            border-radius: 12px;
+            margin-top: 40px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .process-note p {
+            color: var(--text-primary);
+            font-weight: 500;
+            margin: 0;
+        }
+
+        /* Benefits Section */
+        .benefits-section {
+            text-align: center;
+        }
+
+        .benefits-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 60px;
+            color: var(--text-primary);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 40px 32px;
+            border-radius: 16px;
+            box-shadow: var(--shadow-md);
+            text-align: left;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .benefit-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #10b981, #059669);
+            border-radius: 12px;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: white;
+        }
+
+        .benefit-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+
+        .benefit-card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Certification Section */
+        .certification-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #667eea 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .certification-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .certification-content h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .certification-content p {
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .certification-requirements {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 16px;
+            margin: 40px 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .certification-requirements h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+
+        .requirements-list {
+            list-style: none;
+            text-align: left;
+        }
+
+        .requirements-list li {
+            padding: 12px 0;
+            padding-left: 32px;
+            position: relative;
+            font-size: 1.1rem;
+        }
+
+        .requirements-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .certification-quote {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 24px;
+            border-radius: 12px;
+            margin: 32px 0;
+            font-size: 1.2rem;
+            font-weight: 500;
+            font-style: italic;
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            background: var(--bg-secondary);
+        }
+
+        .testimonials-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 60px;
+            text-align: center;
+            color: var(--text-primary);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 40px 32px;
+            border-radius: 16px;
+            box-shadow: var(--shadow-md);
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 32px;
+            font-size: 4rem;
+            color: var(--primary-color);
+            opacity: 0.3;
+            font-weight: 700;
+        }
+
+        .testimonial-text {
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            line-height: 1.7;
+            margin-bottom: 24px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            text-align: center;
+        }
+
+        .faq-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 60px;
+            color: var(--text-primary);
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 32px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: white;
+            padding: 32px;
+            border-radius: 16px;
+            box-shadow: var(--shadow-sm);
+            text-align: left;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        .faq-question {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+        }
+
+        .faq-question::before {
+            content: "🔹";
+            margin-right: 12px;
+            font-size: 1.2rem;
+        }
+
+        .faq-answer {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #f8fafc 0%, white 100%);
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: var(--text-primary);
+        }
+
+        .cta-content .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            line-height: 1.7;
+        }
+
+        .cta-content .highlight {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        /* Form Section */
+        .form-section {
+            background: var(--bg-secondary);
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .form-container h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+
+        .form-container p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+        }
+
+        .signup-form {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: var(--shadow-lg);
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(19, 91, 236, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-submit {
+            width: 100%;
+            background: var(--primary-color);
+            color: white;
+            padding: 16px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .form-submit:hover {
+            background: var(--primary-hover);
+            transform: translateY(-1px);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-primary);
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .footer p {
+            opacity: 0.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .section {
+                padding: 60px 0;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .hero .description {
+                font-size: 1rem;
+            }
+
+            .process-steps,
+            .benefits-grid,
+            .testimonials-grid,
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-content h2,
+            .benefits-section h2,
+            .certification-content h2,
+            .testimonials-section h2,
+            .faq-section h2,
+            .cta-content h2,
+            .form-container h2 {
+                font-size: 2rem;
+            }
+
+            .signup-form {
+                padding: 24px;
+            }
+
+            .container {
+                padding: 0 16px;
+            }
+        }
+
+        /* Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="./" class="logo" aria-label="Praghub - Início">
+                <picture>
+                    <source srcset="./public/1.png" type="image/png">
+                    <img src="./public/1.png" alt="Praghub - Tecnologia para Compliance" style="height: 40px; width: auto;" loading="eager">
+                </picture>
+                </a>
+            <a href="prestadores.html" class="nav-cta">Para Prestadores</a>
+                <a href="#cadastro" class="nav-cta">Quero ser parceiro</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1 style="margin-top: 8px;">Seja um Prestador PragHub</h1>
+            <p class="subtitle">Mais oportunidades, menos burocracia.</p>
+            <p class="description">Junte-se à rede de profissionais certificados que atendem empresas e condomínios em todo o Brasil.</p>
+            <a href="#cadastro" class="cta-button">Quero ser parceiro homologado</a>
+        </div>
+    </section>
+
+    <!-- Why PragHub Section -->
+    <section class="section">
+        <div class="container">
+            <div class="process-content">
+                <h2>Por que trabalhar com o PragHub</h2>
+                <p>No PragHub, acreditamos que <strong>quem faz com excelência merece ser reconhecido</strong>. Nossa plataforma conecta prestadores de serviços de <strong>controle de pragas, higienização e manutenção predial</strong> com <strong>clientes qualificados</strong> — empresas, condomínios e órgãos públicos — que valorizam qualidade, transparência e segurança.</p>
+                <p>Ao fazer parte da rede PragHub, você ganha <strong>visibilidade, recorrência e credibilidade profissional</strong>.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="section process-section">
+        <div class="container">
+            <div class="process-content">
+                <h2>Como funciona</h2>
+                <p>Processo simples e transparente para você começar a receber oportunidades</p>
+                
+                <div class="process-steps">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <h3>Cadastre-se em poucos minutos</h3>
+                        <p>Preencha o formulário com seus dados básicos e áreas de atuação.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <h3>Envie seus documentos e certificados</h3>
+                        <p>Validamos suas licenças, CNPJ, seguro e demais requisitos técnicos.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <h3>Comece a receber chamados</h3>
+                        <p>Após a homologação, você passa a receber solicitações de serviço diretamente pelo sistema PragHub.</p>
+                    </div>
+                </div>
+
+                <div class="process-note">
+                    <p>🚀 <strong>Você trabalha com autonomia total.</strong> A PragHub conecta, facilita e garante a confiança entre as partes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="section benefits-section">
+        <div class="container">
+            <h2>Vantagens para prestadores certificados</h2>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">👥</div>
+                    <h3>Mais clientes qualificados</h3>
+                    <p>Empresas, condomínios e prefeituras que buscam serviços com garantia e padrão técnico.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">📋</div>
+                    <h3>Zero burocracia desnecessária</h3>
+                    <p>Gestão simplificada de chamados, contratos e pagamentos.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">💰</div>
+                    <h3>Pagamentos organizados e previsíveis</h3>
+                    <p>Transparência total em valores, prazos e avaliações.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🏆</div>
+                    <h3>Suporte e visibilidade institucional</h3>
+                    <p>Use o selo "Prestador Certificado PragHub" e fortaleça sua marca.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🔄</div>
+                    <h3>Oportunidade de contratos recorrentes</h3>
+                    <p>Programas de manutenção preventiva e parcerias de longo prazo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certification Section -->
+    <section class="section certification-section">
+        <div class="container">
+            <div class="certification-content">
+                <h2>Selo PragHub Profissional</h2>
+                <p>O <strong>Selo PragHub Profissional</strong> é a certificação que identifica quem atua com seriedade e qualidade comprovada.</p>
+                
+                <div class="certification-requirements">
+                    <h3>Para obtê-lo, o prestador deve:</h3>
+                    <ul class="requirements-list">
+                        <li>Ter CNPJ ativo e documentação sanitária válida.</li>
+                        <li>Cumprir os padrões técnicos de segurança, biossegurança e qualidade.</li>
+                        <li>Manter boas avaliações de clientes e prazos de resposta.</li>
+                    </ul>
+                </div>
+
+                <div class="certification-quote">
+                    <p>"Com o selo PragHub, conquiste a confiança que abre portas."</p>
+                </div>
+
+                <a href="#cadastro" class="cta-button">Quero conquistar meu selo</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section testimonials-section">
+        <div class="container">
+            <h2>Depoimentos de quem já faz parte</h2>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Hoje tenho serviços recorrentes todo mês, e clientes que pagam em dia. O PragHub me trouxe estabilidade e reconhecimento."</p>
+                    <p class="testimonial-author">— Alex, Controle Ambiental, SP</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Nunca foi tão simples mostrar meu trabalho e ser chamado pra serviços de qualidade."</p>
+                    <p class="testimonial-author">— Juliana, Dedetizadora Ecolar, MG</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section faq-section">
+        <div class="container">
+            <h2>Dúvidas Frequentes</h2>
+            
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">Preciso ter CNPJ?</div>
+                    <div class="faq-answer">Sim. A rede é voltada para empresas e profissionais formalizados.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Como são feitos os pagamentos?</div>
+                    <div class="faq-answer">Diretamente entre cliente e prestador, com registro do serviço no sistema PragHub.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Tem custo para participar?</div>
+                    <div class="faq-answer">Não há custo inicial. Planos premium estarão disponíveis para quem quiser ampliar visibilidade.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Posso indicar outros profissionais?</div>
+                    <div class="faq-answer">Sim! Prestadores indicados por membros certificados ganham prioridade na validação.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Junte-se ao ecossistema PragHub</h2>
+                <p class="subtitle">Mais do que uma plataforma, o <span class="highlight">PragHub é uma comunidade de profissionais que constroem confiança</span> todos os dias.</p>
+                <a href="#cadastro" class="cta-button">🚀 Quero ser parceiro homologado</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="section form-section" id="cadastro">
+        <div class="container">
+            <div class="form-container">
+                <h2>Cadastre-se como Prestador</h2>
+                <p>Preencha o formulário abaixo e entraremos em contato para iniciar seu processo de certificação.</p>
+                
+                <form class="signup-form" action="https://formspree.io/f/xwkgjynr" method="POST">
+                    <div class="form-group">
+                        <label for="nome">Nome completo *</label>
+                        <input type="text" id="nome" name="nome" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="empresa">Nome da empresa *</label>
+                        <input type="text" id="empresa" name="empresa" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="cnpj">CNPJ *</label>
+                        <input type="text" id="cnpj" name="cnpj" placeholder="00.000.000/0000-00" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">E-mail corporativo *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="telefone">Telefone comercial *</label>
+                        <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="cidade">Cidade/UF *</label>
+                        <input type="text" id="cidade" name="cidade" placeholder="São Paulo/SP" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="servicos">Áreas de atuação *</label>
+                        <select id="servicos" name="servicos" required>
+                            <option value="">Selecione sua especialidade</option>
+                            <option value="controle-pragas">Controle de Pragas</option>
+                            <option value="higienizacao">Higienização</option>
+                            <option value="manutencao-predial">Manutenção Predial</option>
+                            <option value="multiservicos">Multi-serviços</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="licencas">Número de licenças vigentes</label>
+                        <input type="text" id="licencas" name="licencas" placeholder="Ex: AVCB, vigilância sanitária, etc.">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="mensagem">Conte-nos sobre sua empresa</label>
+                        <textarea id="mensagem" name="mensagem" placeholder="Fale um pouco sobre sua experiência, portfólio de clientes e diferenciais competitivos."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="form-submit">Enviar cadastro para análise</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>© PragHub 2025 — Conectando profissionais, empresas e confiança.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = 'none';
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission with Formspree
+        document.querySelector('.signup-form').addEventListener('submit', function(e) {
+            const submitBtn = this.querySelector('.form-submit');
+            const originalText = submitBtn.textContent;
+            
+            submitBtn.textContent = 'Enviando...';
+            submitBtn.disabled = true;
+            
+            // Let Formspree handle the submission
+            // On success, show confirmation
+            setTimeout(() => {
+                submitBtn.textContent = '✓ Cadastro enviado com sucesso!';
+                submitBtn.style.background = '#10b981';
+                
+                setTimeout(() => {
+                    this.reset();
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                    submitBtn.style.background = '';
+                }, 3000);
+            }, 1500);
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.process-step, .benefit-card, .testimonial-card, .faq-item').forEach(el => {
+            el.classList.add('fade-in');
+            observer.observe(el);
+        });
+
+        // CNPJ input mask
+        document.getElementById('cnpj').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length <= 14) {
+                value = value.replace(/(\d{2})(\d)/, '$1.$2');
+                value = value.replace(/(\d{3})(\d)/, '$1.$2');
+                value = value.replace(/(\d{3})(\d)/, '$1/$2');
+                value = value.replace(/(\d{4})(\d)/, '$1-$2');
+            }
+            e.target.value = value;
+        });
+
+        // Phone input mask
+        document.getElementById('telefone').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length <= 11) {
+                value = value.replace(/(\d{2})(\d)/, '($1) $2');
+                value = value.replace(/(\d{5})(\d)/, '$1-$2');
+            }
+            e.target.value = value;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="teamGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4F46E5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7C3AED;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="300" fill="url(#teamGradient)" rx="16"/>
+  <g transform="translate(200,150)">
+    <circle cx="0" cy="-20" r="40" fill="white" opacity="0.9"/>
+    <rect x="-60" y="20" width="120" height="80" fill="white" opacity="0.8" rx="8"/>
+    <g transform="translate(-40, 40)">
+      <rect width="80" height="12" fill="#4F46E5" rx="6"/>
+      <rect y="20" width="60" height="8" fill="#7C3AED" rx="4"/>
+    </g>
+  </g>
+  <text x="200" y="280" text-anchor="middle" fill="white" font-size="14" opacity="0.7">Equipe de Controle de Pragas</text>
+</svg>

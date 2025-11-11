@@ -83,6 +83,18 @@
             text-decoration: none;
         }
 
+        /* Link de navegação padrão */
+        .nav-link {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            margin: 0 16px;
+            transition: color 0.2s ease;
+        }
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+        
         .nav-cta {
             background: var(--primary-color);
             color: white;
@@ -96,6 +108,19 @@
         .nav-cta:hover {
             background: var(--primary-hover);
             transform: translateY(-1px);
+        }
+
+        /* Espaçamento quando há dois CTAs lado a lado */
+        .nav-cta + .nav-cta {
+            margin-left: 12px;
+        }
+
+        /* Variante de cor secundária para CTA (Para Prestadores) */
+        .nav-cta-secondary {
+            background: #10b981;
+        }
+        .nav-cta-secondary:hover {
+            background: #0ea66c;
         }
 
         /* Hero Section */
@@ -508,15 +533,74 @@
             position: relative;
             z-index: 2;
         }
+        /* About/Team Section */
+        .about-section {
+            background: var(--bg-secondary);
+            padding: 80px 0;
+        }
+
+        .about-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+            text-align: center;
+        }
+
+        .team-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .team-gallery picture {
+            flex: 0 1 320px;
+            max-width: 320px;
+        }
+
+        .team-gallery img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .team-gallery img:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .about-section h2 {
+                font-size: 2rem;
+            }
+
+            .team-gallery {
+                gap: 16px;
+            }
+
+            .team-gallery picture {
+                flex: 0 1 280px;
+            }
+        }
     </style>
 </head>
 <body>
     <!-- Header -->
     <header class="header">
         <nav class="nav container">
-            <a href="#" class="logo">
-                <img src="./public/2.png" alt="Praghub - Tecnologia para Compliance" style="height: 60px; width: auto; transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.1)'; this.style.filter='brightness(1.1)'" onmouseout="this.style.transform='scale(1)'; this.style.filter='brightness(1)'">
+            <a href="./" class="logo" aria-label="Praghub - Início">
+                <picture>
+                    <source srcset="./public/1.png" type="image/png">
+                    <img src="./public/1.png" alt="Praghub - Tecnologia para Compliance" style="height: 60px; width: auto; transition: all 0.3s ease; cursor: pointer;" loading="eager">
+                </picture>
             </a>
+            <a href="prestadores.html" class="nav-cta nav-cta-secondary">Para Prestadores</a>
             <a href="#signup" class="nav-cta">Entrar na fila</a>
         </nav>
     </header>
@@ -632,6 +716,72 @@
         </div>
     </section>
 
+
+
+    <!-- Sobre Nós / Equipes -->
+    <section class="about-section section-sm">
+        <div class="container">
+            <h2>Equipes Certificadas</h2>
+            <p style="color: var(--text-secondary); max-width: 800px; margin: 0 auto 24px; text-align: center;">Conheça algumas das equipes que fazem parte da rede PragHub.</p>
+            <div class="team-gallery" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; justify-content: center;">
+
+                <div class="team-card" style="border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; box-shadow: var(--shadow-md); text-align: left;">
+                    <h3 style="font-size: 1.2rem; margin-bottom: 8px;">Dedetizadora Dedemax</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 12px;">Com atuação consolidada em Cerquilho (SP) e região, a Dedemax se posiciona como parceira confiável no controle de pragas urbanas, oferecendo soluções para residências, empresas, indústrias e órgãos públicos. <a href="http://dedetizadoradedemax.com.br" target="_blank" rel="noopener noreferrer">dedetizadoradedemax.com.br</a></p>
+                    <div style="background-color: var(--background-light); padding: 12px; border-radius: 8px;">
+                        <p style="font-weight: bold; font-size: 0.9rem; margin-bottom: 4px;">Por que é um prestador‐referência PragHub:</p>
+                        <ul style="list-style-position: inside; padding-left: 0; font-size: 0.85rem; color: var(--text-secondary);">
+                            <li>Foco claro em qualidade, tecnologia e transparência.</li>
+                            <li>Carteira de clientes expressiva, incluindo escolas e órgãos públicos.</li>
+                            <li>Comunicação direta e amigável.</li>
+                        </ul>
+                        <p style="font-style: italic; font-size: 0.85rem; margin-top: 12px;">“A Dedemax se uniu à rede PragHub para ampliar sua visibilidade e foco no serviço, enquanto a plataforma cuida da gestão e dos chamados. Resultado: mais contratos recorrentes, menos carga administrativa.”</p>
+                    </div>
+                </div>
+
+                <div class="team-card" style="border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; box-shadow: var(--shadow-md); text-align: left;">
+                    <h3 style="font-size: 1.2rem; margin-bottom: 8px;">Detecta Dedetizadora</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 12px;">Localizada em Campinas (SP), a Detecta se destaca pelo modelo de atuação ampliada — unidades próprias + franquias — e pela oferta de serviços completos para residências, indústrias e comércios.</p>
+                    <div style="background-color: var(--background-light); padding: 12px; border-radius: 8px;">
+                        <p style="font-weight: bold; font-size: 0.9rem; margin-bottom: 4px;">Por que é um prestador‐referência PragHub:</p>
+                        <ul style="list-style-position: inside; padding-left: 0; font-size: 0.85rem; color: var(--text-secondary);">
+                            <li>Estrutura robusta com monitoramento contínuo.</li>
+                            <li>Modelo de rede/franquia que demonstra escala e credibilidade.</li>
+                        </ul>
+                        <p style="font-style: italic; font-size: 0.85rem; margin-top: 12px;">“Com a Detecta integrando a rede PragHub, nossos clientes ganharam acesso a técnicos com escala e cobertura regional – e a Detecta ampliou seu pipeline de contratos corporativos com a robustez de nossa plataforma.”</p>
+                    </div>
+                </div>
+
+                <div class="team-card" style="border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; box-shadow: var(--shadow-md); text-align: left;">
+                    <h3 style="font-size: 1.2rem; margin-bottom: 8px;">Ártica Saúde Ambiental</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 12px;">A Ártica atua há mais de 25 anos no ramo de controle de pragas, com soluções sustentáveis, tecnologia moderna e atendimento emergencial 24h. <a href="http://articaambiental.com" target="_blank" rel="noopener noreferrer">articaambiental.com</a></p>
+                    <div style="background-color: var(--background-light); padding: 12px; border-radius: 8px;">
+                        <p style="font-weight: bold; font-size: 0.9rem; margin-bottom: 4px;">Por que é um prestador‐referência PragHub:</p>
+                        <ul style="list-style-position: inside; padding-left: 0; font-size: 0.85rem; color: var(--text-secondary);">
+                            <li>Mais de 25 anos de mercado, transmitindo confiança.</li>
+                            <li>Abordagem orientada para excelência e sustentabilidade.</li>
+                        </ul>
+                        <p style="font-style: italic; font-size: 0.85rem; margin-top: 12px;">“A Ártica escolheu o selo PragHub para oficializar sua qualidade e aumentar sua penetração em clientes que exigem compliance e rigidez técnica – hoje, é um dos nossos prestadores premium.”</p>
+                    </div>
+                </div>
+                
+                <div class="team-card" style="border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; box-shadow: var(--shadow-md); text-align: left;">
+                    <h3 style="font-size: 1.2rem; margin-bottom: 8px;">DEDEMAX Dedetizadora</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 12px;">A DEDEMAX, com 12 anos de atividade, oferece soluções de desinsetização, desratização, limpeza de caixas d’água, sanitização e outros serviços, para empresas, indústrias e residências.</p>
+                    <div style="background-color: var(--background-light); padding: 12px; border-radius: 8px;">
+                        <p style="font-weight: bold; font-size: 0.9rem; margin-bottom: 4px;">Por que é um prestador‐referência PragHub:</p>
+                        <ul style="list-style-position: inside; padding-left: 0; font-size: 0.85rem; color: var(--text-secondary);">
+                            <li>Transparência profunda, demonstrando seriedade com compliance.</li>
+                            <li>Amplo espectro de serviços, alinhado à proposição de "facilities" do PragHub.</li>
+                        </ul>
+                        <p style="font-style: italic; font-size: 0.85rem; margin-top: 12px;">“A DEDEMAX integra nossa rede e traz a oferta completa de facilities (pragas + sanitização + limpeza de reservatórios) para clientes PragHub que querem um único prestador homologado e confiável.”</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -639,6 +789,12 @@
             <div class="footer-links">
                 <a href="#">Política de Privacidade</a>
                 <a href="#">Contato</a>
+            </div>
+            <div style="margin-top: 16px; display: flex; justify-content: center;">
+                <picture>
+                    <source srcset="./public/1.png" type="image/png">
+                    <img src="./public/1.png" alt="Equipe PragHub representada" loading="lazy" decoding="async" style="border-radius: 8px; box-shadow: var(--shadow-sm); width: min(100%, 180px); height: auto; object-fit: contain; display: block; margin: 0 auto;">
+                </picture>
             </div>
         </div>
     </footer>

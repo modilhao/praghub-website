@@ -158,6 +158,32 @@
             width: auto;
         }
 
+        .nav-link {
+            color: var(--text-light);
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 500;
+            margin: 0 16px;
+            transition: color 0.2s ease;
+        }
+        .nav-link:hover { color: var(--primary-color); }
+
+        .nav-cta {
+            background: var(--primary-color);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            background: var(--primary-hover);
+            transform: translateY(-1px);
+        }
+
         .nav-back {
             color: var(--text-light);
             text-decoration: none;
@@ -618,10 +644,14 @@
     <!-- Header -->
     <header class="header">
         <nav class="nav container">
-            <a href="./" class="logo">
-                <img src="./public/2.png" alt="Praghub - Tecnologia para Compliance" class="logo" loading="eager" style="height: 60px; width: auto; transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.1)'; this.style.filter='brightness(1.1)'" onmouseout="this.style.transform='scale(1)'; this.style.filter='brightness(1)';">
+            <a href="./" class="logo" aria-label="Praghub - Início">
+                <picture>
+                    <source srcset="./public/logo-praghub.png" type="image/png">
+                    <img src="./public/logo-praghub.png" alt="Praghub - Tecnologia para Compliance" style="height: 60px; width: auto; transition: all 0.3s ease; cursor: pointer;" loading="eager">
+                </picture>
             </a>
-                <a href="./" class="nav-back">← Voltar ao início</a>
+            <a href="prestadores.html" class="nav-cta">Para Prestadores</a>
+            <a href="scanner.html" class="nav-cta">Scanner Gratuito</a>
         </nav>
     </header>
 

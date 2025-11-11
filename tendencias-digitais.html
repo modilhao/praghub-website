@@ -85,6 +85,23 @@
             text-decoration: none;
         }
 
+        .nav-link {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            padding: 8px 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .nav-link:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-1px);
+        }
+
         .nav-back {
             background: var(--bg-secondary);
             color: var(--text-primary);
@@ -420,6 +437,61 @@
             position: relative;
             z-index: 2;
         }
+        /* About/Team Section */
+        .about-section {
+            background: var(--bg-secondary);
+            padding: 80px 0;
+        }
+
+        .about-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+            text-align: center;
+        }
+
+        .team-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .team-gallery picture {
+            flex: 0 1 320px;
+            max-width: 320px;
+        }
+
+        .team-gallery img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .team-gallery img:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .about-section h2 {
+                font-size: 2rem;
+            }
+
+            .team-gallery {
+                gap: 16px;
+            }
+
+            .team-gallery picture {
+                flex: 0 1 280px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -427,9 +499,13 @@
     <header class="header">
         <nav class="nav container">
             <a href="./" class="nav-back">← Voltar</a>
-            <a href="./" class="logo">
-                <img src="./public/2.png" alt="Praghub" style="height: 40px; width: auto;">
+            <a href="./" class="logo" aria-label="Praghub - Início">
+                <picture>
+                    <source srcset="./public/logo-praghub.png" type="image/png">
+                    <img src="./public/logo-praghub.png" alt="Praghub - Tecnologia para Compliance" style="height: 40px; width: auto;" loading="eager">
+                </picture>
             </a>
+            <a href="prestadores.html" class="nav-cta">Para Prestadores</a>
             <a href="scanner.html" class="nav-cta">Scanner Gratuito</a>
         </nav>
     </header>
@@ -488,6 +564,31 @@
         </div>
     </section>
 
+    <!-- Sobre Nós / Equipes -->
+    <section class="about-section section-sm">
+        <div class="container">
+            <h2>Equipes Certificadas</h2>
+            <p style="color: var(--text-secondary); max-width: 800px; margin: 0 auto 24px; text-align: center;">Conheça algumas das equipes que fazem parte da rede PragHub.</p>
+            <div class="team-gallery" style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center;">
+                <picture>
+                    <source srcset="./public/team-1.svg" type="image/svg+xml">
+                    <source srcset="./public/1.png" type="image/png">
+                    <img src="./public/1.png" alt="Equipe de controladores de pragas em operação" width="320" height="200" loading="lazy" decoding="async" style="border-radius: 12px; box-shadow: var(--shadow-md); object-fit: cover;" onerror="this.onerror=null; this.src='./public/1.png';">
+                </picture>
+                <picture>
+                    <source srcset="./public/team-2.svg" type="image/svg+xml">
+                    <source srcset="./public/2.png" type="image/png">
+                    <img src="./public/2.png" alt="Equipe realizando inspeção técnica" width="320" height="200" loading="lazy" decoding="async" style="border-radius: 12px; box-shadow: var(--shadow-md); object-fit: cover;" onerror="this.onerror=null; this.src='./public/2.png';">
+                </picture>
+                <picture>
+                    <source srcset="./public/team-3.svg" type="image/svg+xml">
+                    <source srcset="./public/1.png" type="image/png">
+                    <img src="./public/1.png" alt="Equipe de campo preparada para atendimento" width="320" height="200" loading="lazy" decoding="async" style="border-radius: 12px; box-shadow: var(--shadow-md); object-fit: cover;" onerror="this.onerror=null; this.src='./public/1.png';">
+                </picture>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -496,6 +597,12 @@
                 <a href="./">Início</a>
                 <a href="compliance-simplificado.html">Compliance Simplificado</a>
                 <a href="visibilidade-online.html">Visibilidade Online</a>
+            </div>
+            <div style="margin-top: 16px; display: flex; justify-content: center;">
+                <picture>
+                    <source srcset="./public/1.png" type="image/png">
+                    <img src="./public/1.png" alt="Equipe PragHub representada" width="180" height="110" loading="lazy" decoding="async" style="border-radius: 8px; box-shadow: var(--shadow-sm); object-fit: cover;">
+                </picture>
             </div>
         </div>
     </footer>
